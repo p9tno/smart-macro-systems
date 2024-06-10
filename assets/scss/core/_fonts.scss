@@ -1,0 +1,21 @@
+@include font-face("Inter", '../fonts/Inter/Inter-ExtraBold', 800, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Black', 900, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Medium', 500, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Light', 300, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Thin', 100, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-ExtraLight', 200, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-SemiBold', 600, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Bold', bold, normal);
+@include font-face("Inter", '../fonts/Inter/Inter-Regular', normal, normal);
+
+@include font-face("Montserrat", '../fonts/Montserrat/Montserrat-Medium', 500, normal);
+@include font-face("Montserrat", '../fonts/Montserrat/Montserrat-SemiBold', 600, normal);
+@include font-face("Montserrat", '../fonts/Montserrat/Montserrat-Regular', normal, normal);
+@include font-face("Montserrat", '../fonts/Montserrat/Montserrat-Light', 300, normal);
+
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Thn', 100, normal);
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Reg', normal, normal);
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Lgt', 300, normal);
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Bld', bold, normal);
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Blk', 900, normal);
+@include font-face("Tactic Sans Extended", '../fonts/TacticSansExd/TacticSansExd-Med', 500, normal);

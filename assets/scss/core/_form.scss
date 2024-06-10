@@ -1,0 +1,118 @@
+.form {
+	margin-top: 0.625em;
+	@media (min-width: 768px) {
+		margin-top: 1em;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 0.625em;
+	}
+
+	&__row {
+		position: relative;
+		margin-bottom: 0.375em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.btn,
+		input:not([type]),
+		input[type=date],
+		input[type=email],
+		input[type=number],
+		input[type=password],
+		input[type=search],
+		input[type=tel],
+		input[type=text],
+		input[type=url],
+		textarea {
+			width: 100%;
+		}
+
+		textarea {
+			min-height: 6em;
+			resize: vertical;
+		}
+
+		i {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #B8C0D6;
+
+			font-size: 1.25em;
+			right: 1em;
+			transition: 0.8s;
+		}
+
+		&:hover {
+			i {
+				color: $color_info;
+			}
+		}
+
+	}
+
+}
+// Input text and textarea ================================================
+input:not([type]),
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+textarea {
+	padding: 1em 2.5em 1em 1.25em;
+	border: 0.0625em solid #CCD3E6;
+	border-radius: 0.625em;
+
+	line-height: 1.375;
+
+	font-family: $main_font_family;
+	font-size: 1em;
+	font-weight: 300;
+
+	background-color: $color_white;
+	color: $main_color;
+
+	outline: none;
+	transition: 0.8s;
+
+	&:hover {
+		border: 0.0625em solid $color_info;
+	}
+
+	&:focus {
+		border: 0.0625em solid $color_info;
+	}
+
+	&.invalid {
+		border: 0.0625em solid $color_danger;
+	}
+
+	// Placeholder for input +++++++++++++++
+	@include placeholder {
+		color: rgba($main_color, 0.5);
+	}
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+	appearance: none;
+}
+
+/* Для Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	height: auto;
+	appearance: none;
+	margin: 0;
+}
+/* Для Firefox */
+input[type=number] {
+	appearance: textfield;
+}

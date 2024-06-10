@@ -1,0 +1,124 @@
+.imagesList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    margin-top: 1.5em;
+    @media (min-width: 768px) {
+        margin-top: 0;
+
+        &.grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1.25em;
+            grid-row-gap: 3.125em;
+        }
+    }
+
+    &__item {
+        margin-top: 1.5em;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        @media (min-width: 768px) {
+            margin-top: 1.25em;
+            display: flex;
+            align-items: center;
+            gap: 2.5em;
+
+            .grid & {
+                margin-top: 0;
+                gap: 1.625em;
+            }
+        }
+    }
+
+    &__img_wrap {
+        @media (max-width: 767px) {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            b {
+                width: 11em;
+                font-size: 0.875em;
+                color: $color_info;
+                font-weight: 700;
+                line-height: 1.429;
+
+                .grid & {
+                    color: $color_white;
+                }
+            }
+        }
+
+    }
+
+    &__img_inner {
+        flex: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 9.375em;
+        height: 9.375em;
+        border-radius: 0.625em;
+        border-bottom: 0.625em solid #7892D5;
+
+        background-color: $color_dark;
+        color: $color_white;
+        font-size: 0.6667em;
+
+        .grid & {
+            background-color: $color_white;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 1em;
+        }
+
+    }
+
+    &__img {
+        width: 3.75em;
+    }
+
+    &__text {
+        margin-top: 0.75em;
+        @media (min-width: 768px) {
+            margin-top: 0;
+        }
+
+        b,
+        span {
+            font-size: 0.875em;
+            line-height: 1.8125;
+            font-weight: 300;
+
+            @media (min-width: 768px) {
+                font-size: 1em;
+            }
+
+        }
+
+        b {
+            color: $color_info;
+            font-weight: 700;
+            display: none;
+
+            .grid & {
+                color: $color_white;
+                display: block;
+            }
+            @media (min-width: 768px) {
+                display: inline;
+                font-size: 1.125em;
+            }
+
+        }
+    }
+
+}

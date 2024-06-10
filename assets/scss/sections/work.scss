@@ -1,0 +1,117 @@
+.work {
+    .section__wrap {
+        @media (min-width: 768px) {
+            position: relative;
+        }
+    }
+
+    .section__title {
+        width: 10em;
+    }
+
+    .section__desc {
+        margin-top: 0.875em;
+        @media (min-width: 768px) {
+            margin-top: 1.7em;
+            width: 35em;
+        }
+    }
+
+    &__content {
+        background-color: $color_info_bg;
+        color: $color_white;
+        padding: 3.75em 0;
+        @media (min-width: 768px) {
+            padding: 8.75em 0 9em 71.75em;
+        }
+    }
+
+    &__list {
+        margin-top: 1.5em;
+        @media (min-width: 768px) {
+            margin-top: 2.5em;
+        }
+    }
+
+    &__item {
+        display: flex;
+        gap: 1em;
+        margin-top: 0.875em;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        @media (min-width: 768px) {
+            margin-top: 1.25em;
+            gap: 1.75em;
+            align-items: center;
+
+        }
+    }
+
+    &__number {
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.1875em;
+        height: 2.1875em;
+        border-radius: 100%;
+        margin-top: 0.5em;
+
+        background-color: $color_white;
+        color: #6A85CA;
+
+        @media (min-width: 768px) {
+            margin-top: 0;
+            width: 5em;
+            height: 5em;
+        }
+
+        span {
+            font-family: $title_font_family;
+            font-size: 0.75em;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            @media (min-width: 768px) {
+                font-size: 1.375em;
+
+            }
+        }
+
+    }
+
+    &__text {
+        > * {
+            display: block;
+            font-size: 0.875em;
+            font-weight: 300;
+            line-height: 1.8125;
+            @media (min-width: 768px) {
+                font-size: 1em;
+            }
+        }
+
+        b {
+            font-weight: 700;
+        }
+
+    }
+
+    &__img {
+        height: 25em;
+        width: 19.125em;
+        margin: 0.625em auto 0;
+        @media (min-width: 768px) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 60em;
+
+            margin: 0;
+        }
+    }
+
+}
