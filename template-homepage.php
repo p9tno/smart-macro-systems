@@ -33,12 +33,12 @@
 <?php
 
 get_template_part( 'template-parts/sections/section', 'firstscreen' );
-// get_template_part( 'template-parts/sections/section', 'preview' );
-// get_template_part( 'template-parts/sections/section', 'work' );
-// get_template_part( 'template-parts/sections/section', 'homeExamples' );
-// get_template_part( 'template-parts/sections/section', 'ofices' );
-// get_template_part( 'template-parts/sections/section', 'oficesExamples' );
-// get_template_part( 'template-parts/sections/section', 'buildings' );
+get_template_part( 'template-parts/sections/section', 'preview' );
+get_template_part( 'template-parts/sections/section', 'work' );
+get_template_part( 'template-parts/sections/section', 'homeExamples' );
+get_template_part( 'template-parts/sections/section', 'ofices' );
+get_template_part( 'template-parts/sections/section', 'oficesExamples' );
+get_template_part( 'template-parts/sections/section', 'buildings' );
 // get_template_part( 'template-parts/sections/section', 'macro' );
 // get_template_part( 'template-parts/sections/section', 'macroFunctions' );
 // get_template_part( 'template-parts/sections/section', 'smartHome' );
@@ -70,11 +70,11 @@ if ($row) { ?>
 <?php }; ?>
 
 <!-- geti -->
-<?php echo wp_get_attachment_image(SCF::get( 'test' ), 'full') ?>
+<?php echo wp_get_attachment_image(SCF::get( 'test' ), 'full'); ?>
     
 
 <!-- getiu -->
-<?php echo wp_get_attachment_url(SCF::get( 'test' )) ?>
+<?php echo wp_get_attachment_url(SCF::get( 'test' )); ?>
 
 <!-- item -->
 <?php // echo $item[''] ?>

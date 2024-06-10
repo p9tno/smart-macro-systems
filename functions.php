@@ -18,6 +18,12 @@ function sms_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sms_scripts' );
 
+function admin_styles_scripts() {
+	wp_enqueue_style("sms-admin-css", get_template_directory_uri() . '/assets/css/wp-admin.css', array(), _S_VERSION, 'all');
+	// wp_enqueue_script("sms-admin-js", get_template_directory_uri() . '/assets/js/wp-admin.js');
+}
+add_action('admin_enqueue_scripts', 'admin_styles_scripts');
+
 function sms_setup() {
 	add_theme_support( 'title-tag' );
 
