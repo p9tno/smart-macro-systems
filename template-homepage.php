@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Шаблон главной страницы
+ * Template name: Home Page Template
  */
 ?>
 
@@ -14,15 +14,15 @@
 
 
 <?php
-    $no_img_url = get_template_directory_uri() . '/assets/img/no_img.webp' ;
-    $image_id = get_field('test_img');
-    $size = 'full'; // (thumbnail, medium, full, vertical, horizon)
+    // $no_img_url = get_template_directory_uri() . '/assets/img/no_img.webp' ;
+    // $image_id = get_field('test_img');
+    // $size = 'full'; // (thumbnail, medium, full, vertical, horizon)
 
-    if( $image_id ) {
-        $img_url = wp_get_attachment_image_url($image_id, $size);
-    } else {
-        $img_url = $no_img_url;
-    }
+    // if( $image_id ) {
+    //     $img_url = wp_get_attachment_image_url($image_id, $size);
+    // } else {
+    //     $img_url = $no_img_url;
+    // }
 
 ?>
 
@@ -32,18 +32,18 @@
 
 <?php
 
-get_template_part( 'template-parts/homepage/section', 'firstscreen' );
-// get_template_part( 'template-parts/homepage/section', 'preview' );
-// get_template_part( 'template-parts/homepage/section', 'work' );
-// get_template_part( 'template-parts/homepage/section', 'homeExamples' );
-// get_template_part( 'template-parts/homepage/section', 'ofices' );
-// get_template_part( 'template-parts/homepage/section', 'oficesExamples' );
-// get_template_part( 'template-parts/homepage/section', 'buildings' );
-// get_template_part( 'template-parts/homepage/section', 'macro' );
-// get_template_part( 'template-parts/homepage/section', 'macroFunctions' );
-// get_template_part( 'template-parts/homepage/section', 'home' );
-// get_template_part( 'template-parts/homepage/section', 'securityExample' );
-// get_template_part( 'template-parts/homepage/section', 'benefits' );
+get_template_part( 'template-parts/sections/section', 'firstscreen' );
+// get_template_part( 'template-parts/sections/section', 'preview' );
+// get_template_part( 'template-parts/sections/section', 'work' );
+// get_template_part( 'template-parts/sections/section', 'homeExamples' );
+// get_template_part( 'template-parts/sections/section', 'ofices' );
+// get_template_part( 'template-parts/sections/section', 'oficesExamples' );
+// get_template_part( 'template-parts/sections/section', 'buildings' );
+// get_template_part( 'template-parts/sections/section', 'macro' );
+// get_template_part( 'template-parts/sections/section', 'macroFunctions' );
+// get_template_part( 'template-parts/sections/section', 'smartHome' );
+// get_template_part( 'template-parts/sections/section', 'securityExample' );
+// get_template_part( 'template-parts/sections/section', 'benefits' );
 
 
 ?>

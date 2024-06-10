@@ -1,25 +1,20 @@
 <!-- begin firstscreen-->
-<section class="firstscreen section dark" id="firstscreen">
+<section class="firstscreen section" id="firstscreen">
     <div class="section__wrap">
         <div class="firstscreen__content br">
-            <h1 class="section__title"><span>Live Smarter</span><br>with Smart Macro Systems</h1>
-            <div class="firstscreen__text desktop">
-                <p>At Smart Macro Systems, we empower you to Live Smarter with our AI-driven Smart Home, Smart Office,
-                    and Smart Building solutions. Our custom automation systems, orchestrated by intelligent AI, elevate
-                    your living and </p>
-                <p>workspaces, bringing unparalleled comfort, convenience, and security. Our expert team designs and
-                    implements custom automation systems, taking your comfort, convenience, and security to the next
-                    level.</p>
-            </div>
-            <div class="firstscreen__text mobile">
-                <p>At Smart Macro Systems, we empower you to Live Smarter with our AI-driven Smart Home, Smart Office,
-                    and Smart Building solutions. Our custom automation systems, orchestrated by intelligent AI, elevate
-                    your living and workspaces, bringing unparalleled comfort, convenience, and security.</p>
-                <p> Our expert team designs and implements custom automation systems, taking your comfort, convenience,
-                    and security to the next level.</p>
-            </div>
+            <?php if (SCF::get( 'firstscreen_title' )) { ?>
+                <h1 class="section__title"><span><?php echo SCF::get( 'firstscreen_title' ); ?></h1>
+            <?php } ?>
+            <?php if (SCF::get( 'firstscreen_text' )) { ?>
+                <div class="firstscreen__text desktop"><?php echo SCF::get( 'firstscreen_text' ); ?></div>
+            <?php } ?>
+            <?php if (SCF::get( 'firstscreen_text_m' )) { ?>
+                <div class="firstscreen__text mobile"><?php echo SCF::get( 'firstscreen_text_m' ); ?></div>
+            <?php } ?>
         </div>
-        <div class="firstscreen__img img br"><img src="../../img/firstscreen.png" alt="alt" /></div>
+        <?php if (SCF::get( 'firstscreen_img' )) { ?>
+            <div class="firstscreen__img img br"><?php echo wp_get_attachment_image(SCF::get( 'firstscreen_img' ), 'full') ?></div>
+        <?php } ?>
     </div>
 </section>
 <!-- end firstscreen-->

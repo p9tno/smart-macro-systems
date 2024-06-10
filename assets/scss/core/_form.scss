@@ -52,6 +52,10 @@
 			}
 		}
 
+		p {
+			margin: 0;
+		}
+
 	}
 
 }
@@ -90,8 +94,12 @@ textarea {
 		border: 0.0625em solid $color_info;
 	}
 
-	&.invalid {
+	&.wpcf7-not-valid {
 		border: 0.0625em solid $color_danger;
+
+		@include placeholder {
+			color: rgba($color_danger, 0.5);
+		}
 	}
 
 	// Placeholder for input +++++++++++++++
@@ -115,4 +123,80 @@ input[type=number]::-webkit-outer-spin-button {
 /* Для Firefox */
 input[type=number] {
 	appearance: textfield;
+}
+
+
+.wpcf7 form .wpcf7-response-output {
+	position: absolute;
+	bottom: -3.5em;
+	left: 0;
+	margin: 0 0 0 0;
+	border-radius: 0;
+	padding: 0;
+	border: 0;
+	font-size: 0.75em;
+	width: 16em;
+	// color: red;
+	
+	@media (min-width: 768px) {
+		line-height: 1.8125;
+		bottom: -2.5em;
+		font-size: 1.125em;
+		width: auto;
+	}
+}
+
+.wpcf7 form {
+	&.invalid {
+		.wpcf7-response-output {
+			color: $color_info;
+			font-weight: 700;
+		}
+	}
+
+	&.sent {
+		.wpcf7-response-output {
+			color: $color_info;;
+			font-weight: 700;
+		}
+	}
+} 
+
+.wpcf7-not-valid-tip {
+	display: none;
+	// position: absolute;
+	// left: 0;
+	// bottom: -2.2em;
+	// font-size: 0.75em;
+	// @media (min-width: 768px) {
+	//   font-size: 1em;
+	// }
+}
+
+.wpcf7-spinner {
+	position: absolute;
+	width: 1.5em;
+	height: 1.5em;
+	background-color: $color_dark;
+	opacity: 1;
+	font-size: 1.25em;
+	bottom: -2em;
+	right: -1em;
+	@media (min-width: 768px) {
+		font-size: 1.5em;
+		top: 50%;
+		transform: translateY(-50%);
+		right: -3em;
+	  
+	}
+	&:before {
+		content: '';
+		top: 0.25em;
+		left: 0.25em;
+		width: 0.375em;
+		height: 0.375em;
+		transform-origin: 0.5em 0.5em;
+		background-color: $color_white;
+	  
+	}
 }

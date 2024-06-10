@@ -1,14 +1,21 @@
 <header class="header">
     <div class="container_center">
-        <div class="header__content"><a class="header__logo" href="/"><img src="/img/logo.png" alt="alt" /></a>
+        <div class="header__content">
+            <?php if (SCF::get_option_meta('my-theme-settings', 'option_header_img')) { ?>
+                <a class="header__logo" href="<?php echo esc_url(home_url("/")); ?>">
+                    <?php echo wp_get_attachment_image(SCF::get_option_meta( 'my-theme-settings', 'option_header_img' ), 'full') ?>
+                </a>
+            <?php } ?>
+
             <div class="header__nav">
-                <nav class="navbar" id="navbar">
-                    <ul class="menu">
-                        <li class="menu-item"><a href="#homes">SMART HOMES</a></li>
-                        <li class="menu-item"><a href="#ofices">Smart Offices</a></li>
-                        <li class="menu-item"><a href="#buildings">Smart buildings</a></li>
-                        <li class="menu-item"><a href="#security">Smart Security</a></li>
-                    </ul>
+                <nav class="navbar">
+                    <?php 
+                        wp_nav_menu(array(
+                            'theme_location' => 'header',
+                            'container' =>'ul',
+                        )); 
+                    ?>
+
                 </nav>
             </div>
             <div class="header__toggle" id="toggle"><span></span></div>

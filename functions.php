@@ -65,8 +65,8 @@ add_filter( 'mime_types', 'webp_upload_mimes' );
 add_action('admin_menu', 'remove_menus');
 function remove_menus() {
     //remove_menu_page('index.php');                # Консоль 
-    // remove_menu_page('edit.php');                 # Записи 
-    // remove_menu_page('edit-comments.php');        # Комментарии 
+    remove_menu_page('edit.php');                 # Записи 
+    remove_menu_page('edit-comments.php');        # Комментарии 
     //remove_menu_page('edit.php?post_type=page');  # Страницы 
     //remove_menu_page('upload.php');               # Медиафайлы 
     //remove_menu_page('themes.php');               # Внешний вид 
@@ -74,17 +74,31 @@ function remove_menus() {
     // remove_menu_page('users.php');                # Пользователи 
     // remove_menu_page('tools.php');                # Инструменты 
     //remove_menu_page('options-general.php');      # Параметры 
-    // remove_menu_page('edit.php?post_type=acf-field-group'); # ACF smart-custom-fields
+    remove_menu_page('edit.php?post_type=smart-custom-fields');
 }
 
 
 
 // Отключаем принудительную проверку новых версий WP, плагинов и темы в админке,
-// require get_template_directory() . '/inc/disable-verification.php';
-// require get_template_directory() . '/inc/helpers.php';
+require get_template_directory() . '/inc/disable-verification.php';
+require get_template_directory() . '/inc/helpers.php';
 // require get_template_directory() . '/inc/acf-options.php';
 // require get_template_directory() . '/inc/breadcrumb.php';
 // require get_template_directory() . '/inc/post-type.php';
 // require get_template_directory() . '/inc/filter.php';
 // require get_template_directory() . '/inc/ajax-load-posts.php';
+
+
+/**
+ * SCF
+ */
+require get_template_directory() . '/inc/scf/home.php';
+
+/**
+ * SCF settings. my-theme-settings
+ */
+add_action('init', function () {
+	SCF::add_options_page( 'Site management', 'Site management', 'manage_options', 'my-theme-settings','dashicons-welcome-widgets-menus', 150 );
+});
+require get_template_directory() . '/inc/scf/settings.php';
 

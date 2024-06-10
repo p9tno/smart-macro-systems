@@ -1,4 +1,4 @@
-.home {
+.smartHome {
     .section__wrap {
         background-color: $color_primary;
 
@@ -25,7 +25,7 @@
                 gap: 20em;
             }
 
-            .home__img {
+            .smartHome__img {
                 margin-top: 1.5em;
                 @media (min-width: 768px) {
                     margin-top: 0;
@@ -85,7 +85,7 @@
             width: 50.125em;
         }
 
-        .home__img {
+        .smartHome__img {
             @media (min-width: 768px) {
                 height: 29.25em;
             }
