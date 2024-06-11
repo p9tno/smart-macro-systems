@@ -917,6 +917,7 @@ body {
   opacity: 0;
   overflow: hidden;
   font-size: 1em;
+  transition: 0.8s;
 }
 .toTop.show {
   opacity: 1;
@@ -937,7 +938,6 @@ body {
 @media (min-width: 768px) {
   .toTop {
     font-size: 1.5em;
-    transition: 0.8s;
   }
   .toTop:hover {
     background-color: #020202;

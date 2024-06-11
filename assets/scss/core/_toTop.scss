@@ -37,9 +37,9 @@
     }
 
     font-size: 1em;
+    transition: 0.8s;
     @media (min-width: 768px) {
         font-size: 1.5em;
-        transition: 0.8s;
 
         &:hover {
             background-color: $color_dark;
