@@ -39,11 +39,11 @@ get_template_part( 'template-parts/sections/section', 'homeExamples' );
 get_template_part( 'template-parts/sections/section', 'ofices' );
 get_template_part( 'template-parts/sections/section', 'oficesExamples' );
 get_template_part( 'template-parts/sections/section', 'buildings' );
-// get_template_part( 'template-parts/sections/section', 'macro' );
-// get_template_part( 'template-parts/sections/section', 'macroFunctions' );
-// get_template_part( 'template-parts/sections/section', 'smartHome' );
-// get_template_part( 'template-parts/sections/section', 'securityExample' );
-// get_template_part( 'template-parts/sections/section', 'benefits' );
+get_template_part( 'template-parts/sections/section', 'macro' );
+get_template_part( 'template-parts/sections/section', 'macroFunctions' );
+get_template_part( 'template-parts/sections/section', 'smartHome' );
+get_template_part( 'template-parts/sections/section', 'securityExample' );
+get_template_part( 'template-parts/sections/section', 'benefits' );
 
 
 ?>

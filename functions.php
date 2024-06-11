@@ -88,11 +88,6 @@ function remove_menus() {
 // Отключаем принудительную проверку новых версий WP, плагинов и темы в админке,
 require get_template_directory() . '/inc/disable-verification.php';
 require get_template_directory() . '/inc/helpers.php';
-// require get_template_directory() . '/inc/acf-options.php';
-// require get_template_directory() . '/inc/breadcrumb.php';
-// require get_template_directory() . '/inc/post-type.php';
-// require get_template_directory() . '/inc/filter.php';
-// require get_template_directory() . '/inc/ajax-load-posts.php';
 
 
 /**
@@ -107,4 +102,7 @@ add_action('init', function () {
 	SCF::add_options_page( 'Site management', 'Site management', 'manage_options', 'my-theme-settings','dashicons-welcome-widgets-menus', 150 );
 });
 require get_template_directory() . '/inc/scf/settings.php';
+
+// Notice: ob_end_flush(): Failed to send buffer of zlib output compression (0) in /home/deesseucp/public_html/newbeginnings.deessemedia.com/wp-includes/functions.php on line 5373
+remove_action('shutdown', 'wp_ob_end_flush_all', 1);
 

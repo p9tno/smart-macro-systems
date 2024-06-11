@@ -5,17 +5,24 @@
             <div class="macro__wrap">
                 <div class="macro__content">
                     <div class="macro__caption">
-                        <div class="section__label info" data-aos="fade-left">smart macro systems</div>
-                        <h2 class="section__title" data-aos="fade-up"><span>Elevate Your Security</span> with Smart
-                            Macro Systems</h2>
+                        <?php if (SCF::get( 'macro_label' )) { ?>
+                            <div class="section__label info" data-aos="fade-left"><?php echo SCF::get( 'macro_label' ); ?></div>
+                        <?php } ?>
+                        
+                        <?php if (SCF::get( 'macro_title' )) { ?>
+                            <h2 class="section__title" data-aos="fade-up"><?php echo SCF::get( 'macro_title' ); ?></h2>
+                        <?php } ?>
                     </div>
-                    <div class="section__desc">
-                        <p>At Smart Macro Systems, we take security to the next level with intelligent security and
-                            surveillance systems. Our AI-powered solutions provide comprehensive protection for homes,
-                            offices, and buildings.</p>
-                    </div>
+
+                    <?php if (SCF::get( 'macro_desc' )) { ?>
+                        <div class="section__desc">
+                            <p><?php echo SCF::get( 'macro_desc' ); ?></p>
+                        </div>
+                    <?php } ?>
                 </div>
-                <div class="macro__img img br"><img src="../../img/macro.png" alt="alt" /></div>
+                <?php if (SCF::get( 'macro_img' )) { ?>
+                    <div class="macro__img img br"><?php echo wp_get_attachment_image(SCF::get( 'macro_img' ), 'full'); ?></div>
+                <?php } ?>
             </div>
         </div>
     </div>
