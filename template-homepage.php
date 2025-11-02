@@ -6,82 +6,44 @@
 
 <?php get_header(); ?>
 
-<?php // include 'sections.php'; ?>
-
-<?php // echo get_template_directory_uri() . '/assets.' ?>
-
-
-
-
 <?php
-    // $no_img_url = get_template_directory_uri() . '/assets/img/no_img.webp' ;
-    // $image_id = get_field('test_img');
-    // $size = 'full'; // (thumbnail, medium, full, vertical, horizon)
+$home_id = get_option('page_on_front');
+$sections_manager = SCF::get('sections_order_manager', $home_id);
+get_pr($sections_manager);
 
-    // if( $image_id ) {
-    //     $img_url = wp_get_attachment_image_url($image_id, $size);
-    // } else {
-    //     $img_url = $no_img_url;
-    // }
+if (!empty($sections_manager) && is_array($sections_manager)) {
+    foreach ($sections_manager as $section) {
+        // Проверяем, активна ли секция
+        $is_active = false;
+        
+        if (isset($section['section_active']['yes']) && $section['section_active']['yes'] === 'yes') {
+            $is_active = true;
+        }
+        elseif (isset($section['section_active']) && $section['section_active'] === 'yes') {
+            $is_active = true;
+        }
+        elseif (!isset($section['section_active'])) {
+            $is_active = true; // считаем активной по умолчанию
+        }
+        
+        if ($is_active && !empty($section['section_name'])) {
+            get_template_part('template-parts/sections/section', $section['section_name']);
+        }
+    }
+}
 
+// get_template_part( 'template-parts/sections/section', 'firstscreen' );
+// get_template_part( 'template-parts/sections/section', 'preview' );
+// get_template_part( 'template-parts/sections/section', 'work' );
+// get_template_part( 'template-parts/sections/section', 'homeExamples' );
+// get_template_part( 'template-parts/sections/section', 'ofices' );
+// get_template_part( 'template-parts/sections/section', 'oficesExamples' );
+// get_template_part( 'template-parts/sections/section', 'buildings' );
+// get_template_part( 'template-parts/sections/section', 'macro' );
+// get_template_part( 'template-parts/sections/section', 'macroFunctions' );
+// get_template_part( 'template-parts/sections/section', 'smartHome' );
+// get_template_part( 'template-parts/sections/section', 'securityExample' );
+// get_template_part( 'template-parts/sections/section', 'benefits' );
 ?>
-
-
-<?php if ( is_page_template(['template-homepage.php']) ) {} ?>
-       
-
-<?php
-
-get_template_part( 'template-parts/sections/section', 'firstscreen' );
-get_template_part( 'template-parts/sections/section', 'preview' );
-get_template_part( 'template-parts/sections/section', 'work' );
-get_template_part( 'template-parts/sections/section', 'homeExamples' );
-get_template_part( 'template-parts/sections/section', 'ofices' );
-get_template_part( 'template-parts/sections/section', 'oficesExamples' );
-get_template_part( 'template-parts/sections/section', 'buildings' );
-get_template_part( 'template-parts/sections/section', 'macro' );
-get_template_part( 'template-parts/sections/section', 'macroFunctions' );
-get_template_part( 'template-parts/sections/section', 'smartHome' );
-get_template_part( 'template-parts/sections/section', 'securityExample' );
-get_template_part( 'template-parts/sections/section', 'benefits' );
-
-
-?>
-
-<?php if (SCF::get_option_meta('my-theme-settings', 'test')) { ?>
-    <?php echo SCF::get_option_meta('my-theme-settings', 'test'); ?>
-<?php } ?>
-
-
-<?php if (SCF::get( 'test' )) { ?>
-    <?php echo SCF::get( 'test' ); ?>
-<?php } ?>
-
-<?php if (SCF::get( 'test' )) { ?>
-<?php } ?>
-<?php echo SCF::get( 'test' ); ?>
-
-<!-- each -->
-<?php $row = SCF::get('test');
-if ($row) { ?>
-    <?php foreach ($row as $col) {  ?>
-        <?php echo $col['test']; ?>
-    <?php } ?>
-<?php }; ?>
-
-<!-- geti -->
-<?php echo wp_get_attachment_image(SCF::get( 'test' ), 'full'); ?>
-    
-
-<!-- getiu -->
-<?php echo wp_get_attachment_url(SCF::get( 'test' )); ?>
-
-<!-- item -->
-<?php // echo $item[''] ?>
-
-<!-- eachimg -->
-<?php // echo wp_get_attachment_image($item['tetst']) ?>
-<?php // echo wp_get_attachment_url($item['test']) ?>
-
 
 <?php get_footer(); ?>

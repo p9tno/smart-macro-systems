@@ -8,551 +8,569 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 {
 	if (HOME_ID == $id && $type === 'page') {
 
-		$Section = SCF::add_setting('asf_firstscreen', 'First screen');
+        $SectionOrder = SCF::add_setting('asf_sections_order', 'Управление секциями');
+        $SectionOrder->add_group(
+            'sections_order_manager',
+            true,
+            array(
+                array(
+                    'type'        => 'select',
+                    'name'        => 'section_name',
+                    'label'       => 'Секция',
+                    'choices'     => array(
+                        '' => '— Выберите секцию —',
+                        'firstscreen' => 'First screen',
+                        'preview' => 'Умные дома (Сделано)',
+                        'work' => 'Умные дома (Работа)',
+                        'homeExamples' => 'Умные дома (Примеры)',
+                        'ofices' => 'Умные офисы',
+                        'oficesExamples' => 'Умные офисы (Примеры)',
+                        'buildings' => 'Умные здания',
+                        'buildingsExamples' => 'Умные здания (Примеры)',
+                        'macro' => 'Умные макросы',
+                        'macroFunctions' => 'Умные макросы (Функции)',
+                        'smartHome' => 'Умный дом',
+                        'securityExample' => 'Безопасность (Пример)',
+                        'benefits' => 'Преимущества'
+                    ),
+                    'instruction' => 'Выберите секцию. Перетащите - чтобы изменить порядок.',
+                ),
+                array(
+                    'type'        => 'checkbox',
+                    'name'        => 'section_active',
+                    'label'       => 'Активна',
+                    'choices'     => array('yes' => 'Показывать эту секцию'),
+                    'default'     => array('yes'),
+                )
+            )
+        );
+        $settings[] = $SectionOrder;
 
+		$Section = SCF::add_setting('asf_firstscreen', 'First screen');
 		$Section->add_group(
 			'firstscreen-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'firstscreen_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'firstscreen_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'wysiwyg', // Тип поля. Обязательный.
-                    'name'        => 'firstscreen_text', // Ключ поля. Обязательный.
-                    'label'       => 'Text desktop', // Заголовок поля.
+                    'type'        => 'wysiwyg',
+                    'name'        => 'firstscreen_text',
+                    'label'       => 'Текст для десктопа',
                 ),
                 array(
-                    'type'        => 'wysiwyg', // Тип поля. Обязательный.
-                    'name'        => 'firstscreen_text_m', // Ключ поля. Обязательный.
-                    'label'       => 'Text mobile', // Заголовок поля.
+                    'type'        => 'wysiwyg',
+                    'name'        => 'firstscreen_text_m',
+                    'label'       => 'Текст для мобильных',
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'firstscreen_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'firstscreen_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
 		$settings[] = $Section;
 	}
     
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_preview', 'Smart homes (Made)');
+		$Section = SCF::add_setting('asf_preview', 'Умные дома (Сделано)');
 		$Section->add_group(
 			'made-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'made_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'made_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'made_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'made_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'made_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'made_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
 			)
 		);
-
         $Section->add_group(
 			'made_list',
 			true,
 			array(
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'made_list_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'thumbnail', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'made_list_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'thumbnail',
                 ),
                 array(
 					'name'        => 'made_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'made_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_work', 'Smart homes (Work)');
+		$Section = SCF::add_setting('asf_work', 'Умные дома (Работа)');
 		$Section->add_group(
 			'work-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'work_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'work_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'work_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'work_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'work_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'work_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'work_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'work_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
         $Section->add_group(
 			'work_list',
 			true,
 			array(
                 array(
 					'name'        => 'work_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'work_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_homeExamples', 'Smart homes (Examples)');
+		$Section = SCF::add_setting('asf_homeExamples', 'Умные дома (Примеры)');
 		$Section->add_group(
 			'homeExamples-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'homeExamples_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'homeExamples_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'homeExamples_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'homeExamples_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
 			)
 		);
-
         $Section->add_group(
 			'homeExamples_list',
 			true,
 			array(
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'homeExamples_list_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'thumbnail', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'homeExamples_list_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'thumbnail',
                 ),
                 array(
 					'name'        => 'homeExamples_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'homeExamples_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_ofices', 'Smart ofices');
+		$Section = SCF::add_setting('asf_ofices', 'Умные офисы');
 		$Section->add_group(
 			'ofices-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'ofices_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'ofices_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'ofices_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'ofices_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'ofices_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'ofices_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
 			)
 		);
-
         $Section->add_group(
 			'ofices_list',
 			true,
 			array(
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'ofices_list_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'thumbnail', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'ofices_list_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'thumbnail',
                 ),
                 array(
 					'name'        => 'ofices_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'ofices_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_oficesExamples', 'Smart ofices (Examples)');
+		$Section = SCF::add_setting('asf_oficesExamples', 'Умные офисы (Примеры)');
 		$Section->add_group(
 			'oficesExamples-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'oficesExamples_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'oficesExamples_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'oficesExamples_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'oficesExamples_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'wysiwyg', // Тип поля. Обязательный.
-                    'name'        => 'oficesExamples_text', // Ключ поля. Обязательный.
-                    'label'       => 'Text', // Заголовок поля.
+                    'type'        => 'wysiwyg',
+                    'name'        => 'oficesExamples_text',
+                    'label'       => 'Текст',
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'oficesExamples_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'oficesExamples_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
-      
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_buildings', 'Smart buildings');
+		$Section = SCF::add_setting('asf_buildings', 'Умные здания');
 		$Section->add_group(
 			'buildings-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'buildings_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'buildings_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'buildings_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'buildings_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'buildings_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'buildings_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'buildings_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'buildings_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
-      
 			)
 		);
-
         $Section->add_group(
 			'buildings_list',
 			true,
 			array(
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'buildings_list_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'thumbnail', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'buildings_list_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'thumbnail',
                 ),
                 array(
 					'name'        => 'buildings_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'buildings_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_buildingsExamples', 'Smart buildings (Examples)');
+		$Section = SCF::add_setting('asf_buildingsExamples', 'Умные здания (Примеры)');
 		$Section->add_group(
 			'buildingsExamples-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'buildingsExamples_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'buildingsExamples_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'buildingsExamples_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'buildingsExamples_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'buildingsExamples_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'buildingsExamples_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'buildingsExamples_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'buildingsExamples_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macro', 'Smart macro');
+		$Section = SCF::add_setting('asf_macro', 'Умные макросы');
 		$Section->add_group(
 			'macro-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'macro_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'macro_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'macro_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'macro_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'macro_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'macro_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'macro_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'macro_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macroFunctions', 'Smart macro (Functions)');
+		$Section = SCF::add_setting('asf_macroFunctions', 'Умные макросы (Функции)');
 		$Section->add_group(
 			'macroFunctions-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'macroFunctions_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'macroFunctions_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'macroFunctions_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'macroFunctions_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'macroFunctions_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'macroFunctions_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'macroFunctions_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'macroFunctions_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
         $Section->add_group(
 			'macroFunctions_list',
 			true,
 			array(
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'macroFunctions_list_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'thumbnail', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'macroFunctions_list_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'thumbnail',
                 ),
                 array(
 					'name'        => 'macroFunctions_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'macroFunctions_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_security', 'Security');
+		$Section = SCF::add_setting('asf_security', 'Безопасность');
 		$Section->add_group(
 			'security-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'security_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'security_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'security_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'security_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'security_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'security_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'security_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'security_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityAdvanced', 'Security (Advanced)');
+		$Section = SCF::add_setting('asf_securityAdvanced', 'Безопасность (Расширенная)');
 		$Section->add_group(
 			'securityAdvanced-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityAdvanced_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'securityAdvanced_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityAdvanced_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'securityAdvanced_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'securityAdvanced_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'securityAdvanced_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'securityAdvanced_img_top', // Ключ поля. Обязательный.
-                    'label'       => 'Image, top', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'securityAdvanced_img_top',
+                    'label'       => 'Изображение, сверху',
+                    'size'        => 'medium',
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'securityAdvanced_img_bottom', // Ключ поля. Обязательный.
-                    'label'       => 'Image, bottom', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'securityAdvanced_img_bottom',
+                    'label'       => 'Изображение, снизу',
+                    'size'        => 'medium',
                 ),
 			)
 		);
@@ -562,118 +580,112 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 			array(
                 array(
 					'name'        => 'securityAdvanced_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'securityAdvanced_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
-
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityExample', 'Security (Example)');
+		$Section = SCF::add_setting('asf_securityExample', 'Безопасность (Пример)');
 		$Section->add_group(
 			'securityExample-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityExample_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'securityExample_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityExample_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'securityExample_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'securityExample_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'securityExample_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'securityExample_img_d', // Ключ поля. Обязательный.
-                    'label'       => 'Image, desktop', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'securityExample_img_d',
+                    'label'       => 'Изображение, десктоп',
+                    'size'        => 'medium',
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'securityExample_img_m', // Ключ поля. Обязательный.
-                    'label'       => 'Image, mobile', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'securityExample_img_m',
+                    'label'       => 'Изображение, мобильные',
+                    'size'        => 'medium',
                 ),
 			)
 		);
- 
 		$settings[] = $Section;
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityBenefits', 'Security (Benefits)');
+		$Section = SCF::add_setting('asf_securityBenefits', 'Безопасность (Преимущества)');
 		$Section->add_group(
 			'securityBenefits-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityBenefits_label', // Ключ поля. Обязательный.
-                    'label'       => 'Label', // Заголовок поля.
+                    'type'        => 'text',
+                    'name'        => 'securityBenefits_label',
+                    'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text', // Тип поля. Обязательный.
-                    'name'        => 'securityBenefits_title', // Ключ поля. Обязательный.
-                    'label'       => 'Title', // Заголовок поля.
-                    'instruction' => 'To highlight text with a different color, wrap the text in a span tag', // Текст над полем.
-                    'notes'       => 'Text <span>text in a different color</span>', // Текст под полем.
+                    'type'        => 'text',
+                    'name'        => 'securityBenefits_title',
+                    'label'       => 'Заголовок',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
+                    'notes'       => 'Текст <span>текст другого цвета</span>',
                 ),
                 array(
-                    'type'        => 'textarea', // Тип поля. Обязательный.
-                    'name'        => 'securityBenefits_desc', // Ключ поля. Обязательный.
-                    'label'       => 'Description', // Заголовок поля.
-                    'rows'        => 3, // Количество строк. По умолчанию 5.
+                    'type'        => 'textarea',
+                    'name'        => 'securityBenefits_desc',
+                    'label'       => 'Описание',
+                    'rows'        => 3,
                 ),
                 array(
-                    'type'        => 'image', // Тип поля. Обязательный.
-                    'name'        => 'securityBenefits_img', // Ключ поля. Обязательный.
-                    'label'       => 'Image', // Заголовок поля.
-                    'size'        => 'medium', // Размер изображения в метабоксе. thumbnail medium large
+                    'type'        => 'image',
+                    'name'        => 'securityBenefits_img',
+                    'label'       => 'Изображение',
+                    'size'        => 'medium',
                 ),
 			)
 		);
-
         $Section->add_group(
 			'securityBenefits_list',
 			true,
 			array(
                 array(
 					'name'        => 'securityBenefits_list_title',
-					'label'       => 'Title',
+					'label'       => 'Заголовок',
 					'type'        => 'text',
 				),
                 array(
 					'name'        => 'securityBenefits_list_text',
-					'label'       => 'Text',
+					'label'       => 'Текст',
 					'type'        => 'textarea',
                     'rows'        => 2,
 				),
 			)
 		);
- 
 		$settings[] = $Section;
 	}
-
-
 
 	return $settings;
 }

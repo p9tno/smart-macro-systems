@@ -36,15 +36,12 @@ window.onload = function () {
     console.log('onload');
     function preloader() {
         $(()=>{
-
             setTimeout( () => {
                 let p = $('#loader');
                 p.addClass('hide');
-
                 setTimeout( () => {
                     p.remove()
                 },1000);
-
             },1000);
         });
     }
@@ -52,8 +49,6 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
-
-
     function scrollPage () {
         $(".toTop").on("click","a", function (event) {
             event.preventDefault();
@@ -61,7 +56,6 @@ $(document).ready(function() {
             let top = $(id).offset().top;
             $('body,html').animate({scrollTop: top}, 1500);
         });
-
         $(window).scroll(function(){
             if($(window).scrollTop()>500){
                 $('.toTop').addClass('show');
@@ -72,20 +66,14 @@ $(document).ready(function() {
     }
     scrollPage();
 
-;
-
     function openNav() {
         $('.header__toggle').click(function(event) {
-            // console.log('Показ меню');
             $('.navbar').toggleClass('active');
             $('.header__toggle').toggleClass('active');
             $( 'body' ).toggleClass( 'nav-open' );
         });
     };
     openNav();
-
-
-
 
     function initAOS () {
         // https://github.com/michalsnik/aos
@@ -115,7 +103,6 @@ $(document).ready(function() {
             let id  = $(this).attr('href');
             let top = $(id).offset().top;
             $('body,html').animate({scrollTop: top}, 1500);
-
             $('.navbar').removeClass('active');
             $('.header__toggle').removeClass('active');
             $( 'body' ).removeClass( 'nav-open' );
