@@ -75,10 +75,24 @@ body {
 			font-size: 3.25em;
 			line-height: 1.1924;
 		}
-
-		span {
+		
+		strong {
+			font-weight: 400;
 			color: $color_info;
 		}
+
+
+		> * {
+			&:first-child {
+				margin-top: 0;
+			}
+	
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
 	}
 
 	&__desc {

@@ -8,11 +8,9 @@ $main_font_size: 1em;
 
 $container_width: 111.5em;
 $wrap_width: 118.75em;
-// 1760px
 
 $footer_height: auto;
 
-// Color collection for elements
 $main_color: #1F273C;
 
 $color_primary: #F3F3F3;
@@ -27,48 +25,61 @@ $color_white: #ffffff;
 $color_black: #000000;
 $color_dark: #020202;
 
-/* Grid */
-/* ======================================================================== */
-$grid_padding: 1.25em;
-/* 20/16 */
+// Базовый нейтральный (заменяет $main_color)
+$main_color: #F5F1E8; // Теплый кремово-бежевый вместо темно-синего
 
-/* Form */
-/* ======================================================================== */
-// Input variables
+// Акцентные цвета
+$color_primary: #2A2A2A; // Глубокий серый вместо светлого
+$color_info: #7A9EB1; // Приглушенный серо-голубой
+$color_info_bg: #E8EFF4; // Светлый фоновый для info
 
-// Input color
-$input_color: $main_color;
-$input_bg_color: #fff;
-$input_border_color: #ddd;
-$input_placeholder_color: #ddd;
+$color_success: #8DA47A; // Приглушенный оливково-зеленый
+$color_warning: #D4A96A; // Теплый песочный вместо ярко-оранжевого
+$color_danger: #C46A6A; // Приглушенный терракотовый
 
-// Input hover color
-$input_hover_color: $main_color;
-$input_hover_bg_color: $input_bg_color;
-$input_hover_border_color: $input_border_color;
-$input_hover_placeholder_color: $input_placeholder_color;
+// Нейтральные
+$color_white: #FDFBF7; // Почти белый с теплым подтоном
+$color_black: #1A1A1A; // Мягкий черный
+$color_dark: #2A2A2A; // Основной темный
 
-// Input focus color
-$input_focus_color: $main_color;
-$input_focus_bg_color: $input_bg_color;
-$input_focus_border_color: $input_border_color;
-$input_focus_placeholder_color: $input_placeholder_color;
 
-// Input disabled color
-$input_disabled_color: #fff;
-$input_disabled_bg_color: #ccc;
-$input_disabled_border_color: #ccc;
-$input_disabled_placeholder_color: #fff;
 
-// Input error color
-$input_error_color: red;
-$input_error_bg_color: $input_bg_color;
-$input_error_border_color: red;
-// $input_error_placeholder_color: red;
 
-// Button variables
-$btn_default_bg_color: #ddd;
-$btn_default_text_color: $main_color;
-$btn_contrast_text_color: $color_white;
-$btn_default_bg_color_hover: darken($btn_default_bg_color, 7%);
-$btn_default_bg_color_active: darken($btn_default_bg_color, 10%);
+
+
+// $main_color: #1F273C;
+
+// $color_primary: #FAFBFC;
+// $color_info: #6366F1;
+// $color_info_bg: #6366F1;
+
+// $color_success: #10B981;
+// $color_warning: #F59E0B;
+// $color_danger: #EF4444;
+
+// $color_white: #FFFFFF;
+// $color_black: #000000;
+// $color_dark: #111827;
+
+// $main_color: #E3D7C1;
+
+// $color_primary: #1A237E;
+// $color_info: #DE6B35;
+// $color_info_bg: #B85629;
+
+// $color_success: #B350AF;
+// $color_warning: #0679FF;
+// $color_danger: #0CBCCC;
+
+// $color_white: #212121;
+// $color_black: #FFFFFF;
+// $color_dark: #F5F5F5;
+
+
+
+
+
+
+
+
+

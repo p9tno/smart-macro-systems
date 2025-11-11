@@ -19,18 +19,18 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Секция',
                     'choices'     => array(
                         '' => '— Выберите секцию —',
-                        'firstscreen' => 'First screen',
-                        'preview' => 'Умные дома (Сделано)',
-                        'work' => 'Умные дома (Работа)',
-                        'homeExamples' => 'Умные дома (Примеры)',
-                        'ofices' => 'Умные офисы',
-                        'oficesExamples' => 'Умные офисы (Примеры)',
-                        'buildings' => 'Умные здания',
-                        'buildingsExamples' => 'Умные здания (Примеры)',
-                        'macro' => 'Умные макросы',
-                        'macroFunctions' => 'Умные макросы (Функции)',
-                        'smartHome' => 'Умный дом',
-                        'securityExample' => 'Безопасность (Пример)',
+                        'firstscreen' => 'Первый экран',
+                        'preview' => 'Жилые решения (Услуги)',
+                        'work' => 'Жилые решения (Процесс)',
+                        'homeExamples' => 'Жилые решения (Примеры)',
+                        'ofices' => 'Коммерческие помещения',
+                        'oficesExamples' => 'Коммерческие помещения (Примеры)',
+                        'buildings' => 'Строительство зданий',
+                        'buildingsExamples' => 'Строительство зданий (Примеры)',
+                        'macro' => 'Гарантия качества',
+                        'macroFunctions' => 'Контроль качества (Системы)',
+                        'smartHome' => 'Контроль качества (Пример)',
+                        'securityExample' => 'Управление качеством (Пример)',
                         'benefits' => 'Преимущества'
                     ),
                     'instruction' => 'Выберите секцию. Перетащите - чтобы изменить порядок.',
@@ -46,27 +46,22 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
         );
         $settings[] = $SectionOrder;
 
-		$Section = SCF::add_setting('asf_firstscreen', 'First screen');
+		$Section = SCF::add_setting('asf_firstscreen', 'Первый экран');
 		$Section->add_group(
 			'firstscreen-section',
 			false,
 			array(
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'firstscreen_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'wysiwyg',
                     'name'        => 'firstscreen_text',
                     'label'       => 'Текст для десктопа',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'firstscreen_text_m',
-                    'label'       => 'Текст для мобильных',
                 ),
                 array(
                     'type'        => 'image',
@@ -80,7 +75,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
     
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_preview', 'Умные дома (Сделано)');
+		$Section = SCF::add_setting('asf_preview', 'Жилые решения (Услуги)');
 		$Section->add_group(
 			'made-section',
 			false,
@@ -91,14 +86,14 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'made_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
-                    'type'        => 'textarea',
+                    'type'        => 'wysiwyg',
                     'name'        => 'made_desc',
                     'label'       => 'Описание',
                     'rows'        => 3,
@@ -132,7 +127,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_work', 'Умные дома (Работа)');
+		$Section = SCF::add_setting('asf_work', 'Жилые решения (Процесс)');
 		$Section->add_group(
 			'work-section',
 			false,
@@ -146,8 +141,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'work_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -198,8 +193,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'homeExamples_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
 			)
 		);
@@ -244,8 +239,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'ofices_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -296,8 +291,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'oficesExamples_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'wysiwyg',
@@ -330,8 +325,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'buildings_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -388,8 +383,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'buildingsExamples_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -423,8 +418,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'macro_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -458,8 +453,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'macroFunctions_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -516,8 +511,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'security_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -551,8 +546,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'securityAdvanced_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -609,8 +604,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'securityExample_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',
@@ -650,8 +645,8 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'type'        => 'text',
                     'name'        => 'securityBenefits_title',
                     'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег span',
-                    'notes'       => 'Текст <span>текст другого цвета</span>',
+                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
                 array(
                     'type'        => 'textarea',

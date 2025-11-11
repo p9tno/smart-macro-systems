@@ -3,13 +3,10 @@
     <div class="section__wrap">
         <div class="firstscreen__content br">
             <?php if (SCF::get( 'firstscreen_title' )) { ?>
-                <h1 class="section__title"><span><?php echo SCF::get( 'firstscreen_title' ); ?></h1>
+                <h1 class="section__title"><?php echo SCF::get( 'firstscreen_title' ); ?></h1>
             <?php } ?>
             <?php if (SCF::get( 'firstscreen_text' )) { ?>
-                <div class="firstscreen__text desktop"><?php echo SCF::get( 'firstscreen_text' ); ?></div>
-            <?php } ?>
-            <?php if (SCF::get( 'firstscreen_text_m' )) { ?>
-                <div class="firstscreen__text mobile"><?php echo SCF::get( 'firstscreen_text_m' ); ?></div>
+                <div class="firstscreen__text"><?php echo SCF::get( 'firstscreen_text' ); ?></div>
             <?php } ?>
         </div>
         <?php if (SCF::get( 'firstscreen_img' )) { ?>
