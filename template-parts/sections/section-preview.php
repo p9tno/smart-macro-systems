@@ -24,9 +24,7 @@
                     <?php foreach ($row as $col) {  ?>
                         <div class="preview__item">
                             <div class="preview__left">
-                                <div class="preview__icon">
-                                    <div class="preview__img img"><?php echo wp_get_attachment_image($col['made_list_img'], 'full') ?></div>
-                                </div>
+                                <div class="preview__img img"><?php echo wp_get_attachment_image($col['made_list_img'], 'full') ?></div>
                                 <b class="mobile"><?php echo $col['made_list_title']; ?></b>
                             </div>
                             <div class="preview__text">

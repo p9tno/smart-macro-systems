@@ -85,13 +85,9 @@
         }
     }
 
-    &__icon {
+    &__img {
+        overflow: hidden;
         flex: none;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
         width: 10.3125em;
         height: 10.3125em;
         border-radius: 1.25em;
@@ -105,9 +101,7 @@
         }
     }
 
-    &__img {
-        width: 4.25em;
-    }
+
 
     &__text {
         margin-top: 0.75em;

@@ -138,7 +138,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'work_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -179,7 +179,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_homeExamples', 'Умные дома (Примеры)');
+		$Section = SCF::add_setting('asf_homeExamples', 'Жилые решения (Примеры)');
 		$Section->add_group(
 			'homeExamples-section',
 			false,
@@ -190,7 +190,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'homeExamples_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -225,7 +225,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_ofices', 'Умные офисы');
+		$Section = SCF::add_setting('asf_ofices', 'Коммерческие помещения');
 		$Section->add_group(
 			'ofices-section',
 			false,
@@ -236,7 +236,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'ofices_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -277,7 +277,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_oficesExamples', 'Умные офисы (Примеры)');
+		$Section = SCF::add_setting('asf_oficesExamples', 'Коммерческие помещения (Примеры)');
 		$Section->add_group(
 			'oficesExamples-section',
 			false,
@@ -288,7 +288,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'oficesExamples_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -311,7 +311,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_buildings', 'Умные здания');
+		$Section = SCF::add_setting('asf_buildings', 'Строительство зданий');
 		$Section->add_group(
 			'buildings-section',
 			false,
@@ -322,7 +322,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'buildings_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -369,7 +369,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_buildingsExamples', 'Умные здания (Примеры)');
+		$Section = SCF::add_setting('asf_buildingsExamples', 'Строительство зданий (Примеры)');
 		$Section->add_group(
 			'buildingsExamples-section',
 			false,
@@ -380,7 +380,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'buildingsExamples_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -404,7 +404,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macro', 'Умные макросы');
+		$Section = SCF::add_setting('asf_macro', 'Гарантия качества');
 		$Section->add_group(
 			'macro-section',
 			false,
@@ -415,7 +415,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'macro_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -439,7 +439,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macroFunctions', 'Умные макросы (Функции)');
+		$Section = SCF::add_setting('asf_macroFunctions', 'Контроль качества (Системы)');
 		$Section->add_group(
 			'macroFunctions-section',
 			false,
@@ -450,7 +450,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'macroFunctions_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -497,7 +497,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_security', 'Безопасность');
+		$Section = SCF::add_setting('asf_security', 'Контроль качества (Пример)');
 		$Section->add_group(
 			'security-section',
 			false,
@@ -508,7 +508,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'security_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -532,7 +532,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityAdvanced', 'Безопасность (Расширенная)');
+		$Section = SCF::add_setting('asf_securityAdvanced', 'Управление качеством (Пример)');
 		$Section->add_group(
 			'securityAdvanced-section',
 			false,
@@ -543,7 +543,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'securityAdvanced_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -601,7 +601,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'securityExample_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
@@ -631,7 +631,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 	}
 
 	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityBenefits', 'Безопасность (Преимущества)');
+		$Section = SCF::add_setting('asf_securityBenefits', 'Преимущества');
 		$Section->add_group(
 			'securityBenefits-section',
 			false,
@@ -642,7 +642,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'label'       => 'Метка',
                 ),
                 array(
-                    'type'        => 'text',
+                    'type'        => 'wysiwyg',
                     'name'        => 'securityBenefits_title',
                     'label'       => 'Заголовок',
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',

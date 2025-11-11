@@ -3,7 +3,7 @@
     <div class="section__wrap br">
         <div class="container_center">
             <?php if (SCF::get( 'homeExamples_label' )) { ?>
-                <div class="section__label info" data-aos="fade-right"><?php echo SCF::get( 'homeExamples_label' ); ?></div>
+                <div class="section__label" data-aos="fade-right"><?php echo SCF::get( 'homeExamples_label' ); ?></div>
             <?php } ?>
 
             <?php if (SCF::get( 'homeExamples_title' )) { ?>

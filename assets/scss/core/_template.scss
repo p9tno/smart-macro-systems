@@ -135,7 +135,7 @@ body {
 		line-height: 1.1;
 
 		color: $color_white;
-		background-color: $color_black;
+		background-color: $color_info;
 
 		margin-bottom: 2.0161em;
 
@@ -147,17 +147,14 @@ body {
 		}
 
 		&.white {
-			color: $color_info_bg;
-			background-color: $color_white;
+			color: $color_info;
+			background-color: $color_info_bg;
 		}
 
 		&.info {
 			background-color: $color_info_bg;
 		}
 
-		&.infoBlack {
-			color: $color_info_bg;
-		}
 	}
 
 }
