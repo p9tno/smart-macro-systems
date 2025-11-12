@@ -1,8 +1,5 @@
 .benefits {
     .section__wrap {
-        background-color: $color_info_bg;
-        color: $color_white;
-
         padding: 3.75em 0;
         @media (min-width: 768px) {
             padding: 8.75em 0 10.625em;
@@ -81,8 +78,7 @@
             height: 5em;
 
             border-radius: 100%;
-            color: $color_info;
-
+ 
             font-size: 0.45em;
             @media (min-width: 768px) {
                 font-size: 1em;
@@ -110,7 +106,6 @@
             }
 
             &:before {
-                background-color: $color_black;
                 left: -0.625em;
             }
 
@@ -126,7 +121,6 @@
             font-size: 0.875em;
             line-height: 1.4;
             font-weight: 700;
-            // color: $color_info;
             @media (min-width: 768px) {
                 line-height: 1.8125;
                 font-size: 1.125em;

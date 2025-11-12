@@ -8,7 +8,7 @@
 		background-color: $color_primary;
 		padding: 2.5em 0 4.375em;
 		@media (min-width: 768px) {
-			padding: 7.5em 0;
+			padding: 3.5em 0;
 		}
 	}
 
@@ -22,17 +22,8 @@
 		@media (min-width: 768px) {
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
 
-		}
-	}
-
-	&__form {
-		position: relative;
-		margin-top: 2em;
-		@media (min-width: 768px) {
-			width: 35.375em;
-			margin-top: 0;
-			margin-left: 17.8em;
 		}
 	}
 
@@ -43,7 +34,7 @@
 		margin: 0 auto 1.25em;
 		@media (min-width: 768px) {
 			margin: 0;
-			width: 17.375em;
+			// width: 17.375em;
 		}
 	}
 
@@ -55,6 +46,9 @@
 		@media (min-width: 768px) {
 			text-align: left;
 			margin-left: 10.6em;
+			display: flex;
+			align-items: center;
+			gap: 2em;
 		}
 	}
 
@@ -65,7 +59,7 @@
 			margin-top: 0;
 		}
 		@media (min-width: 768px) {
-			margin-top: 1.125em;
+			margin-top: 0;
 		}
 
 		a,

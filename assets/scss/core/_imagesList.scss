@@ -44,13 +44,8 @@
             b {
                 width: 11em;
                 font-size: 0.875em;
-                color: $color_info;
                 font-weight: 700;
                 line-height: 1.429;
-
-                .grid & {
-                    color: $color_white;
-                }
             }
         }
 
@@ -67,16 +62,8 @@
         width: 9.375em;
         height: 9.375em;
         border-radius: 0.625em;
-        border-bottom: 0.625em solid #7892D5;
-
-        background-color: $color_dark;
-        color: $color_white;
+        border-bottom: 0.625em solid;     
         font-size: 0.6667em;
-
-        .grid & {
-            background-color: $color_white;
-        }
-
         @media (min-width: 768px) {
             font-size: 1em;
         }

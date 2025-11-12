@@ -27,6 +27,12 @@ body {
  ----------------------------------------------------------------------------- */
 .main_content {
 	flex-grow: 1;
+
+	.error404 & {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .container_center {
@@ -35,10 +41,6 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-// .letter {
-// 	display: inline-block;
-// }
 
 .section {
 	padding: 0.3125em 0;
@@ -53,8 +55,79 @@ body {
 		padding-bottom: 0.625em;
 	}
 
+	&:nth-child(2n + 1) {
+		.section__wrap {
+			background-color: $color_dark;
+			color: $color_white;
+		}
+
+		.imagesList__img_inner {
+			border-color: $color_info;
+		}
+
+		.work__number {
+			color: $color_primary;
+		}
+		
+		.benefits__list_icon {
+			color: $color_dark;
+
+			&:before {
+			  background-color: $color_info;
+			}
+		}
+	}
+	
+	&:nth-child(2n) {
+		.section__wrap {
+			background-color: $color_info;
+			color: $color_white;
+
+			b {
+				color: $color_primary;
+			}
+		}
+		
+		.section__title {
+			strong {
+				color: $color_primary;
+
+			}
+		}
+		
+		.bt,
+		.bb {
+			&:before {
+			  content: '';
+			  background-color: $color_primary;
+			}
+		}
+		
+		.section__label {
+			background-color: $color_primary;
+		}
+
+		.imagesList__img_inner {
+			border-color: $color_primary;
+		}
+
+		.work__number {
+			color: $color_info;
+		}
+		
+		.benefits__list_icon {
+			color: $color_info;
+			&:before {
+			  background-color: $color_black;
+			}
+		}
+	}
+
 	&__wrap {
+		overflow: hidden;
+		border-radius: 0.625em;
 		@media (min-width: 768px) {
+			border-radius: 1.25em;
 			max-width: $wrap_width;
 			margin-left: auto;
 			margin-right: auto;
@@ -146,16 +219,6 @@ body {
 			font-size: 0.875em;
 			margin-bottom: 2.85715em;
 		}
-
-		&.white {
-			color: $color_info;
-			background-color: $color_info_bg;
-		}
-
-		&.info {
-			background-color: $color_info_bg;
-		}
-
 	}
 
 }
@@ -307,6 +370,9 @@ body {
 	user-select: none;
 };
 
-// * {
-// 	border: 1px solid #000;
-// }
+
+.notfound {
+	.section__wrap {
+		padding: 1.5em;
+	}
+}

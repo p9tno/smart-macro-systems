@@ -4,7 +4,7 @@
         <div class="work__content br">
             <div class="container_center">
                 <?php if (SCF::get( 'work_label' )) { ?>
-                    <div class="section__label white" data-aos="fade-left"><?php echo SCF::get( 'work_label' ); ?></div>
+                    <div class="section__label" data-aos="fade-left"><?php echo SCF::get( 'work_label' ); ?></div>
                 <?php } ?>
                 
                 <?php if (SCF::get( 'work_title' )) { ?>

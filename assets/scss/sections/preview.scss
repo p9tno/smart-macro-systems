@@ -1,6 +1,5 @@
 .preview {
     .section__wrap {
-        background-color: $color_primary;
         padding: 3.75em 0 5em;
 
         @media (min-width: 768px) {
@@ -31,7 +30,6 @@
     }
 
     &__grid {
-
         @media (min-width: 768px) {
             display: grid;
             grid-template-columns: 52.5em 46.25em;
@@ -78,7 +76,6 @@
             b {
                 width: 11em;
                 font-size: 0.875em;
-                color: $color_info;
                 font-weight: 700;
                 line-height: 1.429;
             }
@@ -91,10 +88,6 @@
         width: 10.3125em;
         height: 10.3125em;
         border-radius: 1.25em;
-        border-bottom: 0.5em solid $color_info;
-
-        background-color: $color_black;
-        color: $color_white;
         font-size: 0.6em;
         @media (min-width: 768px) {
             font-size: 1em;
@@ -123,7 +116,6 @@
         }
 
         b {
-            color: $color_info;
             font-weight: 700;
             display: none;
             @media (min-width: 768px) {

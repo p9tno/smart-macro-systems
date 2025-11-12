@@ -1,6 +1,5 @@
 .homeExamples {
     .section__wrap {
-        background-color: $color_primary;
         padding: 3.75em 0;
         @media (min-width: 768px) {
             padding: 8.75em 0;
@@ -80,7 +79,6 @@
 
     &__title {
         font-weight: 700;
-        color: $color_info;
         @media (min-width: 768px) {
             font-size: 1.125em;
         }

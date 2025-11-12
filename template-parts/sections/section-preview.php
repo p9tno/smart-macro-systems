@@ -1,5 +1,5 @@
 <!-- begin preview-->
-<section class="preview section" id="homes">
+<section class="preview section" id="preview">
     <div class="section__wrap br bt">
         <div class="container_center">
             <div class="preview__grid">
