@@ -23,14 +23,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                         'preview' => 'Жилые решения (Услуги)',
                         'work' => 'Жилые решения (Процесс)',
                         'homeExamples' => 'Жилые решения (Примеры)',
-                        'ofices' => 'Коммерческие помещения',
-                        'oficesExamples' => 'Коммерческие помещения (Примеры)',
-                        'buildings' => 'Строительство зданий',
-                        'buildingsExamples' => 'Строительство зданий (Примеры)',
-                        'macro' => 'Гарантия качества',
-                        'macroFunctions' => 'Контроль качества (Системы)',
-                        'smartHome' => 'Контроль качества (Пример)',
-                        'securityExample' => 'Управление качеством (Пример)',
+                        'buildings' => 'Строительство',
                         'benefits' => 'Преимущества'
                     ),
                     'instruction' => 'Выберите секцию. Перетащите - чтобы изменить порядок.',
@@ -224,91 +217,6 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 		$settings[] = $Section;
 	}
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_ofices', 'Коммерческие помещения');
-		$Section->add_group(
-			'ofices-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'ofices_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'ofices_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'ofices_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-			)
-		);
-        $Section->add_group(
-			'ofices_list',
-			true,
-			array(
-                array(
-                    'type'        => 'image',
-                    'name'        => 'ofices_list_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'thumbnail',
-                ),
-                array(
-					'name'        => 'ofices_list_title',
-					'label'       => 'Заголовок',
-					'type'        => 'text',
-				),
-                array(
-					'name'        => 'ofices_list_text',
-					'label'       => 'Текст',
-					'type'        => 'textarea',
-                    'rows'        => 2,
-				),
-			)
-		);
-		$settings[] = $Section;
-	}
-
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_oficesExamples', 'Коммерческие помещения (Примеры)');
-		$Section->add_group(
-			'oficesExamples-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'oficesExamples_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'oficesExamples_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'oficesExamples_text',
-                    'label'       => 'Текст',
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'oficesExamples_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-		$settings[] = $Section;
-	}
 
 	if (HOME_ID == $id && $type === 'page') {
 		$Section = SCF::add_setting('asf_buildings', 'Строительство зданий');
@@ -368,267 +276,267 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
 		$settings[] = $Section;
 	}
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_buildingsExamples', 'Строительство зданий (Примеры)');
-		$Section->add_group(
-			'buildingsExamples-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'buildingsExamples_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'buildingsExamples_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'buildingsExamples_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'buildingsExamples_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_buildingsExamples', 'Строительство зданий (Примеры)');
+	// 	$Section->add_group(
+	// 		'buildingsExamples-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'buildingsExamples_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'buildingsExamples_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'buildingsExamples_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'buildingsExamples_img',
+    //                 'label'       => 'Изображение',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macro', 'Гарантия качества');
-		$Section->add_group(
-			'macro-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'macro_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'macro_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'macro_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'macro_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_macro', 'Гарантия качества');
+	// 	$Section->add_group(
+	// 		'macro-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'macro_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'macro_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'macro_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'macro_img',
+    //                 'label'       => 'Изображение',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_macroFunctions', 'Контроль качества (Системы)');
-		$Section->add_group(
-			'macroFunctions-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'macroFunctions_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'macroFunctions_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'macroFunctions_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'macroFunctions_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-        $Section->add_group(
-			'macroFunctions_list',
-			true,
-			array(
-                array(
-                    'type'        => 'image',
-                    'name'        => 'macroFunctions_list_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'thumbnail',
-                ),
-                array(
-					'name'        => 'macroFunctions_list_title',
-					'label'       => 'Заголовок',
-					'type'        => 'text',
-				),
-                array(
-					'name'        => 'macroFunctions_list_text',
-					'label'       => 'Текст',
-					'type'        => 'textarea',
-                    'rows'        => 2,
-				),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_macroFunctions', 'Контроль качества (Системы)');
+	// 	$Section->add_group(
+	// 		'macroFunctions-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'macroFunctions_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'macroFunctions_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'macroFunctions_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'macroFunctions_img',
+    //                 'label'       => 'Изображение',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+    //     $Section->add_group(
+	// 		'macroFunctions_list',
+	// 		true,
+	// 		array(
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'macroFunctions_list_img',
+    //                 'label'       => 'Изображение',
+    //                 'size'        => 'thumbnail',
+    //             ),
+    //             array(
+	// 				'name'        => 'macroFunctions_list_title',
+	// 				'label'       => 'Заголовок',
+	// 				'type'        => 'text',
+	// 			),
+    //             array(
+	// 				'name'        => 'macroFunctions_list_text',
+	// 				'label'       => 'Текст',
+	// 				'type'        => 'textarea',
+    //                 'rows'        => 2,
+	// 			),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_security', 'Контроль качества (Пример)');
-		$Section->add_group(
-			'security-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'security_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'security_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'security_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'security_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_security', 'Контроль качества (Пример)');
+	// 	$Section->add_group(
+	// 		'security-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'security_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'security_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'security_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'security_img',
+    //                 'label'       => 'Изображение',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityAdvanced', 'Управление качеством (Пример)');
-		$Section->add_group(
-			'securityAdvanced-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'securityAdvanced_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'securityAdvanced_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'securityAdvanced_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'securityAdvanced_img_top',
-                    'label'       => 'Изображение, сверху',
-                    'size'        => 'medium',
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'securityAdvanced_img_bottom',
-                    'label'       => 'Изображение, снизу',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-        $Section->add_group(
-			'securityAdvanced_list',
-			true,
-			array(
-                array(
-					'name'        => 'securityAdvanced_list_title',
-					'label'       => 'Заголовок',
-					'type'        => 'text',
-				),
-                array(
-					'name'        => 'securityAdvanced_list_text',
-					'label'       => 'Текст',
-					'type'        => 'textarea',
-                    'rows'        => 2,
-				),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_securityAdvanced', 'Управление качеством (Пример)');
+	// 	$Section->add_group(
+	// 		'securityAdvanced-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'securityAdvanced_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'securityAdvanced_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'securityAdvanced_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'securityAdvanced_img_top',
+    //                 'label'       => 'Изображение, сверху',
+    //                 'size'        => 'medium',
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'securityAdvanced_img_bottom',
+    //                 'label'       => 'Изображение, снизу',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+    //     $Section->add_group(
+	// 		'securityAdvanced_list',
+	// 		true,
+	// 		array(
+    //             array(
+	// 				'name'        => 'securityAdvanced_list_title',
+	// 				'label'       => 'Заголовок',
+	// 				'type'        => 'text',
+	// 			),
+    //             array(
+	// 				'name'        => 'securityAdvanced_list_text',
+	// 				'label'       => 'Текст',
+	// 				'type'        => 'textarea',
+    //                 'rows'        => 2,
+	// 			),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
-	if (HOME_ID == $id && $type === 'page') {
-		$Section = SCF::add_setting('asf_securityExample', 'Безопасность (Пример)');
-		$Section->add_group(
-			'securityExample-section',
-			false,
-			array(
-                array(
-                    'type'        => 'text',
-                    'name'        => 'securityExample_label',
-                    'label'       => 'Метка',
-                ),
-                array(
-                    'type'        => 'wysiwyg',
-                    'name'        => 'securityExample_title',
-                    'label'       => 'Заголовок',
-                    'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
-                    'notes'       => 'Текст <strong>текст другого цвета</strong>',
-                ),
-                array(
-                    'type'        => 'textarea',
-                    'name'        => 'securityExample_desc',
-                    'label'       => 'Описание',
-                    'rows'        => 3,
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'securityExample_img_d',
-                    'label'       => 'Изображение, десктоп',
-                    'size'        => 'medium',
-                ),
-                array(
-                    'type'        => 'image',
-                    'name'        => 'securityExample_img_m',
-                    'label'       => 'Изображение, мобильные',
-                    'size'        => 'medium',
-                ),
-			)
-		);
-		$settings[] = $Section;
-	}
+	// if (HOME_ID == $id && $type === 'page') {
+	// 	$Section = SCF::add_setting('asf_securityExample', 'Безопасность (Пример)');
+	// 	$Section->add_group(
+	// 		'securityExample-section',
+	// 		false,
+	// 		array(
+    //             array(
+    //                 'type'        => 'text',
+    //                 'name'        => 'securityExample_label',
+    //                 'label'       => 'Метка',
+    //             ),
+    //             array(
+    //                 'type'        => 'wysiwyg',
+    //                 'name'        => 'securityExample_title',
+    //                 'label'       => 'Заголовок',
+    //                 'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
+    //                 'notes'       => 'Текст <strong>текст другого цвета</strong>',
+    //             ),
+    //             array(
+    //                 'type'        => 'textarea',
+    //                 'name'        => 'securityExample_desc',
+    //                 'label'       => 'Описание',
+    //                 'rows'        => 3,
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'securityExample_img_d',
+    //                 'label'       => 'Изображение, десктоп',
+    //                 'size'        => 'medium',
+    //             ),
+    //             array(
+    //                 'type'        => 'image',
+    //                 'name'        => 'securityExample_img_m',
+    //                 'label'       => 'Изображение, мобильные',
+    //                 'size'        => 'medium',
+    //             ),
+	// 		)
+	// 	);
+	// 	$settings[] = $Section;
+	// }
 
 	if (HOME_ID == $id && $type === 'page') {
 		$Section = SCF::add_setting('asf_securityBenefits', 'Преимущества');

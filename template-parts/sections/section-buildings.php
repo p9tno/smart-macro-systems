@@ -7,7 +7,7 @@
                 <div class="buildings__row">
                     <div class="buildings__top">
                         <?php if (SCF::get( 'buildings_label' )) { ?>
-                            <div class="section__label info" data-aos="fade-right"><?php echo SCF::get( 'buildings_label' ); ?></div>
+                            <div class="section__label" data-aos="fade-right"><?php echo SCF::get( 'buildings_label' ); ?></div>
                         <?php } ?>
                         <?php if (SCF::get( 'buildings_title' )) { ?>
                             <h2 class="section__title" data-aos="fade-up"><?php echo SCF::get( 'buildings_title' ); ?></h2>
@@ -29,8 +29,8 @@
                                 <?php foreach ($row as $col) {  ?>
                                     <li class="imagesList__item">
                                         <div class="imagesList__img_wrap">
-                                            <div class="imagesList__img_inner">
-                                                <div class="imagesList__img img"><?php echo wp_get_attachment_image($col['buildings_list_img'], 'full'); ?></div>
+                                            <div class="imagesList__img_inner img">
+                                                <?php echo wp_get_attachment_image($col['buildings_list_img'], 'full'); ?>
                                             </div>
                                             <b class="mobile"><?php echo $col['buildings_list_title']; ?></b>
                                         </div>
