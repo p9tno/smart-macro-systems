@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container_center">
         <div class="header__content">
-            <?php if (SCF::get_option_meta('my-theme-settings', 'option_header_img')) { ?>
+            <?php if (class_exists('SCF') && SCF::get_option_meta('my-theme-settings', 'option_header_img')) { ?>
                 <a class="header__logo" href="<?php echo esc_url(home_url("/")); ?>">
                     <?php echo wp_get_attachment_image(SCF::get_option_meta( 'my-theme-settings', 'option_header_img' ), 'full') ?>
                 </a>
@@ -14,12 +14,15 @@
                         //     'theme_location' => 'header',
                         //     'container' =>'ul',
                         // )); 
+                        if (class_exists('SCF')) {
+                            $home_id = get_option('page_on_front');
+                            $sections_manager = SCF::get('sections_order_manager', $home_id);
 
-                        $home_id = get_option('page_on_front');
-                        $sections_manager = SCF::get('sections_order_manager', $home_id);
+                        }
+
                         // get_pr($sections_manager);
 
-                        if (!empty($sections_manager) && is_array($sections_manager)) {
+                        if (class_exists('SCF') && !empty($sections_manager) && is_array($sections_manager)) {
                             echo '<ul class="menu">';
                             foreach ($sections_manager as $section) {
                                 $is_active = false;

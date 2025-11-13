@@ -1,38 +1,41 @@
-<footer class="footer">
-    <div class="section__wrap br bb">
-        <div class="container_center">
-            <div class="footer__content">
+<?php if (class_exists('SCF')) { ?>
 
-                <?php if (SCF::get_option_meta('my-theme-settings', 'option_footer_img')) { ?>
-                    <a class="footer__logo img" href="<?php echo esc_url(home_url("/")); ?>">
-                        <?php echo wp_get_attachment_image(SCF::get_option_meta( 'my-theme-settings', 'option_footer_img' ), 'full') ?>
-                    </a>
-                <?php } ?>
-
-                <ul class="footer__list">
-                    <?php if (SCF::get_option_meta('my-theme-settings', 'option_address')) { ?>
-                        <li class="footer__item">
-                            <div class="footer__label">Адрес:</div>
-                            <span><?php echo SCF::get_option_meta('my-theme-settings', 'option_address'); ?></span>
-                        </li>
+    <footer class="footer">
+        <div class="section__wrap br bb">
+            <div class="container_center">
+                <div class="footer__content">
+    
+                    <?php if (SCF::get_option_meta('my-theme-settings', 'option_footer_img')) { ?>
+                        <a class="footer__logo img" href="<?php echo esc_url(home_url("/")); ?>">
+                            <?php echo wp_get_attachment_image(SCF::get_option_meta( 'my-theme-settings', 'option_footer_img' ), 'full') ?>
+                        </a>
                     <?php } ?>
-
-                    <?php if (SCF::get_option_meta('my-theme-settings', 'option_phone')) { ?>
-                        <li class="footer__item">
-                            <div class="footer__label">Телефон:</div>
-                            <a href="tel:<?php echo preg_replace('/\s+/', '', SCF::get_option_meta('my-theme-settings', 'option_phone')); ?>"><?php echo SCF::get_option_meta('my-theme-settings', 'option_phone'); ?></a>
-                        </li>
-                    <?php } ?>
-
-                    <?php if (SCF::get_option_meta('my-theme-settings', 'option_email')) { ?>
-                        <li class="footer__item">
-                            <div class="footer__label">Почта:</div>
-                            <a href="mailto:<?php echo SCF::get_option_meta('my-theme-settings', 'option_email'); ?>"><?php echo SCF::get_option_meta('my-theme-settings', 'option_email'); ?></a>
-                        </li>
-                    <?php } ?>
-                </ul>
-
+    
+                    <ul class="footer__list">
+                        <?php if (SCF::get_option_meta('my-theme-settings', 'option_address')) { ?>
+                            <li class="footer__item">
+                                <div class="footer__label">Адрес:</div>
+                                <span><?php echo SCF::get_option_meta('my-theme-settings', 'option_address'); ?></span>
+                            </li>
+                        <?php } ?>
+    
+                        <?php if (SCF::get_option_meta('my-theme-settings', 'option_phone')) { ?>
+                            <li class="footer__item">
+                                <div class="footer__label">Телефон:</div>
+                                <a href="tel:<?php echo preg_replace('/\s+/', '', SCF::get_option_meta('my-theme-settings', 'option_phone')); ?>"><?php echo SCF::get_option_meta('my-theme-settings', 'option_phone'); ?></a>
+                            </li>
+                        <?php } ?>
+    
+                        <?php if (SCF::get_option_meta('my-theme-settings', 'option_email')) { ?>
+                            <li class="footer__item">
+                                <div class="footer__label">Почта:</div>
+                                <a href="mailto:<?php echo SCF::get_option_meta('my-theme-settings', 'option_email'); ?>"><?php echo SCF::get_option_meta('my-theme-settings', 'option_email'); ?></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+    
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+<?php }

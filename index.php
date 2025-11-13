@@ -1,11 +1,14 @@
 <?php get_header(); ?>
 
 <?php
-$home_id = get_option('page_on_front');
-$sections_manager = SCF::get('sections_order_manager', $home_id);
-// get_pr($sections_manager);
+if (class_exists('SCF')) {
+    $home_id = get_option('page_on_front');
+    $sections_manager = SCF::get('sections_order_manager', $home_id);
+    // get_pr($sections_manager);
 
-if (!empty($sections_manager) && is_array($sections_manager)) {
+}
+
+if (class_exists('SCF') && !empty($sections_manager) && is_array($sections_manager)) {
     foreach ($sections_manager as $section) {
         // Проверяем, активна ли секция
         $is_active = false;
@@ -24,14 +27,10 @@ if (!empty($sections_manager) && is_array($sections_manager)) {
             get_template_part('template-parts/sections/section', $section['section_name']);
         }
     }
+} else {
+   ?> <h1 style="color: #000000;">Активируйте плагины</h1> <?php
 }
 
-// get_template_part( 'template-parts/sections/section', 'firstscreen' );
-// get_template_part( 'template-parts/sections/section', 'preview' );
-// get_template_part( 'template-parts/sections/section', 'work' );
-// get_template_part( 'template-parts/sections/section', 'homeExamples' );
-// get_template_part( 'template-parts/sections/section', 'buildings' );
-// get_template_part( 'template-parts/sections/section', 'benefits' );
 ?>
 
 <?php get_footer(); ?>

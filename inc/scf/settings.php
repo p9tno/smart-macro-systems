@@ -17,13 +17,13 @@ function global_theme_settings($settings, $type, $id, $meta_type, $types)
 					'type'        => 'image', // Тип поля. Обязательный.
 					'name'        => 'option_header_img', // Ключ поля. Обязательный.
 					'label'       => 'Logo header', // Заголовок поля.
-					'size'        => 'medium', // Размер изображения в метабоксе.
+					'size'        => 'thumbnail', // Размер изображения в метабоксе.
 				),
 				array(
 					'type'        => 'image', // Тип поля. Обязательный.
 					'name'        => 'option_footer_img', // Ключ поля. Обязательный.
 					'label'       => 'Logo footer', // Заголовок поля.
-					'size'        => 'medium', // Размер изображения в метабоксе.
+					'size'        => 'thumbnail', // Размер изображения в метабоксе.
 				),
 				array(
 					'name'        => 'option_phone',

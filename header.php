@@ -9,7 +9,7 @@
 </head>
 <!-- start body -->
 <body <?php body_class(); ?>>
-	<?php if (SCF::get_option_meta('my-theme-settings', 'boolean_preloader')) { ?>
+	<?php if (class_exists('SCF') && SCF::get_option_meta('my-theme-settings', 'boolean_preloader')) { ?>
 		<?php get_template_part( 'template-parts/parts/part', 'preloader' ); ?>
 	<?php } ?>
 	<?php wp_body_open(); ?>

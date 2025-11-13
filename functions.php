@@ -29,6 +29,8 @@ function sms_setup() {
 	add_theme_support( 'post-thumbnails' );
 	// add_image_size( 'custom-lg', 900, 600, true);
 
+	// load_theme_textdomain( 'sms', get_template_directory() . '/languages' );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
@@ -84,18 +86,54 @@ require get_template_directory() . '/inc/disable-verification.php';
 require get_template_directory() . '/inc/helpers.php';
 
 
-/**
- * SCF
- */
-require get_template_directory() . '/inc/scf/home.php';
+// Проверяем существует ли класс Smart_Custom_Fields
+if (class_exists('Smart_Custom_Fields')) {
+	/**
+	 * SCF
+	 */
+	require get_template_directory() . '/inc/scf/home.php';
+	
+	
+	/**
+	 * SCF settings. my-theme-settings
+	*/
+	add_action('init', function () {
+		SCF::add_options_page( 'Настройки сайта', 'Настройки сайта', 'manage_options', 'my-theme-settings','dashicons-welcome-widgets-menus', 150 );
+	});
+	require get_template_directory() . '/inc/scf/settings.php';
+}
 
-/**
- * SCF settings. my-theme-settings
- */
-add_action('init', function () {
-	SCF::add_options_page( 'Настройки сайта', 'Настройки сайта', 'manage_options', 'my-theme-settings','dashicons-welcome-widgets-menus', 150 );
-});
-require get_template_directory() . '/inc/scf/settings.php';
+
 
 // Notice: ob_end_flush(): Failed to send buffer of zlib output compression (0) in /home/deesseucp/public_html/newbeginnings.deessemedia.com/wp-includes/functions.php on line 5373
 // remove_action('shutdown', 'wp_ob_end_flush_all', 1);
+
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'sms_register_required_plugins' );
+
+function sms_register_required_plugins() {
+	$plugins = array(
+		array(
+			'name'      => 'Smart Custom Fields',
+			'slug'      => 'smart-custom-fields',
+			'required'  => true,
+		),
+	);
+
+	$config = array(
+		'id'           => 'sms',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+
+	tgmpa( $plugins, $config );
+}
+
