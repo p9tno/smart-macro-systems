@@ -37,7 +37,7 @@
                 <?php if (SCF::get_option_meta('my-theme-settings', 'contacts_form')) { ?>
              
                     <div class="footer__form">
-                        <div class="footer__label">Application form:</div>
+                        <div class="footer__label">Связаться с нами</div>
                         <?php echo do_shortcode(  SCF::get_option_meta('my-theme-settings', 'contacts_form') ); ?>
                         <!-- <form class="form" action="send.php">
                             <div class="form__row">

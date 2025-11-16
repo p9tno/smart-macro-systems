@@ -112,4 +112,67 @@ $(document).ready(function() {
     };
     scroolTo();
 
+    function showModal() {
+        $('.show_modal_js').on('click', function (e) {
+            e.preventDefault();
+            let id = $(this).attr('href');       
+            $(id).modal('show');
+        });
+
+        $('.modal').on('show.bs.modal', () => {
+            let openedModal = $('.modal');
+            if (openedModal.length > 0) {
+                openedModal.modal('hide');
+            }
+        });
+
+        // $('.modal').on('hide.bs.modal', () => {});
+    }
+    // showModal();
+
+
+    function initContactFormModal() {
+        let modal = $('#wpcf7-info');
+        let message = modal.find('.wpcf7-info__message');
+        
+        modal.on('hidden.bs.modal', function (e) {
+            message.html('');
+        });
+        
+        // Общая функция для обработки событий
+        function handleFormEvent(event) {
+  
+            // Даем время для обновления DOM
+            setTimeout(() => {
+                let responseText = $('.wpcf7-response-output').text();
+                console.log('Найденный текст:', responseText);
+                
+                // Если текст пустой, используем fallback
+                if (!responseText) {
+                    switch(event.type) {
+                        case 'wpcf7mailsent':
+                            responseText = 'Сообщение успешно отправлено!';
+                            break;
+                        case 'wpcf7invalid':
+                            responseText = 'Пожалуйста, исправьте ошибки в форме.';
+                            break;
+                        case 'wpcf7mailfailed':
+                            responseText = 'Произошла ошибка при отправке сообщения.';
+                            break;
+                        default:
+                            responseText = 'Сообщение отправлено.';
+                    }
+                }
+                
+                message.html(responseText);
+                modal.modal('show');
+            }, 300);
+        }
+        
+        // Назначаем обработчики
+        $(document).on('wpcf7mailsent', handleFormEvent);
+        // $(document).on('wpcf7invalid', handleFormEvent);
+        $(document).on('wpcf7mailfailed', handleFormEvent);
+    }
+    initContactFormModal();
 })

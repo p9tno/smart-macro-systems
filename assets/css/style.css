@@ -2001,11 +2001,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.625em;
+    grid-row-gap: 1em;
   }
 }
 .form__row {
   position: relative;
-  margin-bottom: 0.375em;
+  margin-bottom: 1.25em;
 }
 .form__row:last-child {
   margin-bottom: 0;
@@ -2052,14 +2053,14 @@ input[type=text],
 input[type=url],
 textarea {
   padding: 1em 2.5em 1em 1.25em;
-  border: 0.0625em solid #CCD3E6;
+  border: 0.0625em solid #7A9EB1;
   border-radius: 0.625em;
   line-height: 1.375;
   font-family: "Inter";
   font-size: 1em;
   font-weight: 300;
   background-color: #FDFBF7;
-  color: #F5F1E8;
+  color: #7A9EB1;
   outline: none;
   transition: 0.8s;
 }
@@ -2109,7 +2110,7 @@ input[type=tel]::-webkit-input-placeholder,
 input[type=text]::-webkit-input-placeholder,
 input[type=url]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: rgba(245, 241, 232, 0.5);
+  color: rgba(122, 158, 177, 0.5);
 }
 input:not([type]):-moz-placeholder,
 input[type=date]:-moz-placeholder,
@@ -2121,7 +2122,7 @@ input[type=tel]:-moz-placeholder,
 input[type=text]:-moz-placeholder,
 input[type=url]:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: rgba(245, 241, 232, 0.5);
+  color: rgba(122, 158, 177, 0.5);
 }
 input:not([type])::-moz-placeholder,
 input[type=date]::-moz-placeholder,
@@ -2133,7 +2134,7 @@ input[type=tel]::-moz-placeholder,
 input[type=text]::-moz-placeholder,
 input[type=url]::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: rgba(245, 241, 232, 0.5);
+  color: rgba(122, 158, 177, 0.5);
 }
 input:not([type]):-ms-input-placeholder,
 input[type=date]:-ms-input-placeholder,
@@ -2145,7 +2146,7 @@ input[type=tel]:-ms-input-placeholder,
 input[type=text]:-ms-input-placeholder,
 input[type=url]:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: rgba(245, 241, 232, 0.5);
+  color: rgba(122, 158, 177, 0.5);
 }
 
 input[type=search]::-webkit-search-cancel-button,
@@ -2168,4 +2169,140 @@ input[type=number] {
   -webkit-appearance: textfield;
      -moz-appearance: textfield;
           appearance: textfield;
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+  position: absolute;
+  top: calc(100% + 1.75em);
+  font-size: 0.625em;
+  color: #C46A6A;
+}
+@media (min-width: 768px) {
+  .wpcf7 .wpcf7-not-valid-tip {
+    top: calc(100% + 2.5em);
+  }
+}
+.wpcf7 .wpcf7-response-output {
+  display: none !important;
+}
+
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal-close {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  right: 0.625em;
+  top: 0.625em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(245, 241, 232, 0.3);
+}
+@media (min-width: 768px) {
+  .modal-close {
+    width: 1.25em;
+    height: 1.25em;
+    right: 0.8125em;
+    top: 0.8125em;
+  }
+}
+.modal-close:after, .modal-close:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-top: 0.125em solid;
+}
+.modal-close:before {
+  transform: rotate(45deg);
+}
+.modal-close:after {
+  transform: rotate(-45deg);
+}
+.modal-close:hover {
+  color: rgba(245, 241, 232, 0.5);
+}
+.modal.fade .modal-dialog {
+  transform: translate(0, -25%);
+  transition: transform 0.3s ease-out;
+}
+.modal.in {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.modal.in .modal-dialog {
+  transform: translate(0, 0);
+  position: relative;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: auto;
+  max-width: 17.5em;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 30em;
+  }
+}
+.modal-content {
+  position: relative;
+  background-color: #7A9EB1;
+  color: #F5F1E8;
+  border: none;
+  border-radius: 0.625em;
+  background-clip: padding-box;
+  outline: 0;
+  padding: 1.5em 0.75em;
+}
+@media (min-width: 768px) {
+  .modal-content {
+    padding: 1.75em 1.25em;
+    border-radius: 1.25em;
+  }
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #2A2A2A;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.wpcf7-info__message {
+  margin: 0;
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .wpcf7-info__message {
+    font-size: 1.5em;
+  }
 }

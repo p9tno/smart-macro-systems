@@ -13,6 +13,7 @@ function sms_scripts() {
     wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script( 'sms-aos', get_template_directory_uri() . '/assets/js/aos.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'sms-modal', get_template_directory_uri() . '/assets/js/modal.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'sms-function', get_template_directory_uri() . '/assets/js/function.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'sms_scripts' );
@@ -98,3 +99,7 @@ if (class_exists('Smart_Custom_Fields')) {
 	});
 	require get_template_directory() . '/inc/scf/settings.php';
 }
+
+
+// удалить тег p в contact form 7
+add_filter( 'wpcf7_autop_or_not', '__return_false');
