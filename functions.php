@@ -90,10 +90,9 @@ if (class_exists('Smart_Custom_Fields')) {
 	 */
 	require get_template_directory() . '/inc/scf/fields/html-example.php';
 	require get_template_directory() . '/inc/scf/fields/link.php';
+
 	require get_template_directory() . '/inc/scf/home.php';
 
-	
-	
 	/**
 	 * SCF settings. my-theme-settings
 	*/

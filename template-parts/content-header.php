@@ -65,6 +65,15 @@
     </div>
 </header>
 
+<?php
+echo "<h1>";
+echo get_post_type(); 
+echo "</h1>"
+
+?>
+
+</h1>
+
 <!-- 
 <ul id="menu-header" class="menu">
     <li id="menu-item-11" class="menu-item">

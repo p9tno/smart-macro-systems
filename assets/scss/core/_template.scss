@@ -379,3 +379,547 @@ body {
 		padding: 1.5em;
 	}
 }
+
+// content.scss
+
+/* ==========================================================================
+   Стили для кастомного контента WordPress
+   Гармонично интегрированы в существующий дизайн
+   ========================================================================== */
+
+// Миксины для повторяющихся стилей
+@mixin border-radius($radius: 0.625em) {
+    border-radius: $radius;
+    overflow: hidden;
+    
+    @media (min-width: 768px) {
+        border-radius: $radius * 2;
+    }
+}
+
+@mixin card-style {
+    background-color: $color_white;
+    border: 0.0625em solid rgba($color_info, 0.1);
+    border-radius: 0.625em;
+    padding: 1.5em;
+    
+    @media (min-width: 768px) {
+        border-radius: 1.25em;
+        padding: 2em;
+    }
+}
+
+@mixin snakeline-link {
+    position: relative;
+    text-decoration: none;
+    
+    &:after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        bottom: -0.125em;
+        border-bottom: 0.125em solid;
+        border-color: inherit;
+        transition: width 0.3s;
+    }
+    
+    @media (min-width: 768px) {
+        &:hover:after {
+            width: 65%;
+        }
+    }
+}
+
+@mixin button-style {
+    display: inline-block;
+    padding: 1.5em 1em;
+    border-radius: 0.7143em;
+    border: none;
+    outline: none;
+    max-width: 100%;
+    font-family: $title_font_family;
+    font-size: 0.875em;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    color: $color_white;
+    background-color: $color_primary;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover:not(:disabled) {
+        background-color: $color_info_dark;
+    }
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+@mixin input-style {
+    padding: 1em 2.5em 1em 1.25em;
+    border: 0.0625em solid $color_info;
+    border-radius: 0.625em;
+    line-height: 1.375;
+    font-family: $main_font_family;
+    font-size: 1em;
+    font-weight: 300;
+    background-color: $color_white;
+    color: $color_info;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    
+    &:hover {
+        border-color: $color_info_dark;
+    }
+    
+    &:focus {
+        border-color: $color_info_dark;
+        box-shadow: 0 0 0 0.125em rgba($color_info_dark, 0.1);
+    }
+    
+    &::-webkit-input-placeholder {
+        color: rgba($color_info, 0.5);
+    }
+    
+    &:-moz-placeholder {
+        color: rgba($color_info, 0.5);
+    }
+    
+    &::-moz-placeholder {
+        color: rgba($color_info, 0.5);
+    }
+    
+    &:-ms-input-placeholder {
+        color: rgba($color_info, 0.5);
+    }
+}
+
+.content {
+    font-family: $main_font_family;
+    line-height: 1.6;
+    color: $color_black;
+    font-size: $main_font_size;
+    
+    &__wrap {
+   
+        @include border-radius();
+        // background-color: $color_white;
+    }
+
+	// Заголовки
+	h1, h2, h3, h4, h5, h6 {
+		margin: 1.5em 0 0.75em;
+		font-weight: 600;
+		line-height: $main_line_height;
+		color: $color_dark;
+		font-family: $title_font_family;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	h1 {
+		font-size: 2.25em;
+		position: relative;
+		padding-bottom: 0.5em;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 2em;
+			height: 0.125em;
+			background: $color_info_dark;
+		}
+	}
+	
+	h2 {
+		font-size: 1.75em;
+		color: $color_primary;
+		border-bottom: 0.0625em solid rgba($color_info, 0.2);
+		padding-bottom: 0.375em;
+	}
+	
+	h3 {
+		font-size: 1.375em;
+		color: $color_info_dark;
+	}
+	
+	h4 {
+		font-size: 1.25em;
+		color: $color_primary;
+	}
+	
+	h5 {
+		font-size: 1.1em;
+		color: $color_dark;
+	}
+	
+	h6 {
+		font-size: 1em;
+		color: $color_info;
+		text-transform: uppercase;
+		letter-spacing: 0.03125em;
+	}
+	
+	// Параграфы
+	p {
+		margin: 0 0 1.5em;
+		font-size: 1em;
+		font-weight: 300;
+		line-height: 1.7;
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+		
+		b, strong {
+			font-weight: 700;
+			color: $color_primary;
+		}
+	}
+	
+	// Ссылки
+	a {
+		color: $color_info_dark;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		@include snakeline-link;
+		
+		&:hover {
+			color: $color_primary;
+		}
+		
+		// Стиль для кнопок "наверх"
+		&[href="/#wrapper"] {
+			@include button-style;
+			font-size: 0.875em;
+			padding: 0.75em 1.25em;
+			margin-left: 1em;
+			background-color: $color_info;
+			
+			&:hover {
+				background-color: $color_info_dark;
+			}
+		}
+	}
+	
+	// Горизонтальная линия
+	hr {
+		border: 0;
+		height: 0.125em;
+		background: linear-gradient(90deg, transparent, $color_info, transparent);
+		margin: 2.5em 0;
+	}
+	
+	// Списки
+	ul, ol {
+		margin: 1.5em 0;
+		padding-left: 2em;
+		
+		li {
+			margin-bottom: 0.75em;
+			padding-left: 0.5em;
+			font-weight: 300;
+			line-height: 1.6;
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	ul {
+		list-style-type: none;
+		
+		li {
+			position: relative;
+			
+			&::before {
+				content: '•';
+				color: $color_info_dark;
+				font-weight: bold;
+				position: absolute;
+				left: -1em;
+			}
+		}
+		
+		ul {
+			margin: 0.75em 0;
+			
+			li::before {
+				content: '◦';
+			}
+		}
+	}
+	
+	ol {
+		list-style-type: decimal;
+		
+		ol {
+			list-style-type: lower-roman;
+			margin: 0.75em 0;
+		}
+	}
+	
+	// Definition list
+	dl {
+		margin: 1.5em 0;
+		@include card-style;
+	}
+	
+	dt {
+		font-weight: 600;
+		color: $color_info_dark;
+		margin-bottom: 0.5em;
+		font-family: $second_font_family;
+	}
+	
+	dd {
+		margin: 0 0 1.5em 1.5em;
+		color: $color_info;
+		font-weight: 300;
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	// Формы
+	fieldset {
+		@include border-radius();
+		border: 0.125em solid rgba($color_info_dark, 0.1);
+		padding: 2em;
+		background: $color_white;
+		margin: 1.5em 0;
+	}
+	
+	legend {
+		font-weight: 600;
+		color: $color_info_dark;
+		padding: 0 1em;
+		background: $color_white;
+		font-family: $second_font_family;
+	}
+	
+	form {
+		margin: 1.5em 0;
+	}
+	
+	label {
+		display: block;
+		margin: 1.5em 0 0.5em;
+		font-weight: 500;
+		color: $color_dark;
+		font-family: $second_font_family;
+	}
+	
+	input[type="text"],
+	input[type="password"],
+	textarea,
+	select {
+		@include input-style;
+		max-width: 25em;
+	}
+	
+	textarea {
+		min-height: 6.25em;
+		resize: vertical;
+	}
+	
+	select {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237A9EB1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+		background-position: right 0.5em center;
+		background-repeat: no-repeat;
+		background-size: 1.5em;
+		padding-right: 2.5em;
+	}
+	
+	// Радио-кнопки и чекбоксы
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin-right: 0.5em;
+		transform: scale(1.2);
+	}
+	
+	.radio,
+	.checkbox {
+		display: inline-flex;
+		align-items: center;
+		margin-right: 1.5em;
+		margin-bottom: 0.5em;
+		cursor: pointer;
+		font-weight: 300;
+	}
+	
+	// Кнопки
+	input[type="submit"],
+	input[type="reset"],
+	button {
+		@include button-style;
+		margin-right: 0.75em;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	input[type="submit"] {
+		background-color: $color_info_dark;
+		
+		&:hover {
+			background-color: darken($color_info_dark, 10%);
+		}
+	}
+	
+	input[type="reset"] {
+		background-color: $color_warning;
+		
+		&:hover {
+			background-color: darken($color_warning, 10%);
+		}
+	}
+	
+	// Таблицы
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5em 0;
+		@include border-radius();
+	}
+	
+	th, td {
+		padding: 0.75em;
+		text-align: left;
+		border-bottom: 0.0625em solid rgba($color_info, 0.2);
+	}
+	
+	th {
+		background: rgba($color_info_dark, 0.05);
+		color: $color_info_dark;
+		font-weight: 600;
+		font-family: $second_font_family;
+	}
+	
+	tr {
+		&:nth-child(even) {
+			background: rgba($color_info_bg, 0.3);
+		}
+		
+		&:hover {
+			background: rgba($color_info, 0.1);
+		}
+	}
+	
+	// Разные элементы
+	sup {
+		font-size: 0.75em;
+		vertical-align: super;
+		color: $color_info_dark;
+	}
+	
+	sub {
+		font-size: 0.75em;
+		vertical-align: sub;
+		color: $color_info;
+	}
+	
+	cite {
+		font-style: italic;
+		color: $color_info;
+	}
+	
+	acronym, abbr {
+		border-bottom: 0.0625em dotted $color_info;
+		cursor: help;
+	}
+	
+	pre {
+		@include card-style;
+		overflow-x: auto;
+		font-family: monospace;
+		margin: 1.5em 0;
+	}
+	
+	code {
+		background: $color_info_bg;
+		padding: 0.125em 0.375em;
+		border-radius: 0.1875em;
+		font-family: monospace;
+		color: $color_info_dark;
+		font-size: 0.875em;
+	}
+	
+	blockquote {
+		border-left: 0.25em solid $color_warning;
+		padding: 1em 1.5em;
+		margin: 1.5em 0;
+		background: rgba($color_warning, 0.05);
+		font-style: italic;
+		color: $color_dark;
+		@include border-radius(0.5em);
+		
+		&::before {
+			content: '"';
+			font-size: 2em;
+			color: $color_warning;
+			margin-right: 0.25em;
+			vertical-align: -0.2em;
+		}
+	}
+	
+	small {
+		font-size: 0.875em;
+		color: $color_info;
+	}
+	
+	// Адаптивность
+	@media (max-width: 48em) {
+		.content__wrap {
+			padding: 1em;
+			max-width: none;
+		}
+		
+		h1 {
+			font-size: 1.75em;
+		}
+		
+		h2 {
+			font-size: 1.5em;
+		}
+		
+		h3 {
+			font-size: 1.25em;
+		}
+		
+		input[type="text"],
+		input[type="password"],
+		textarea,
+		select {
+			max-width: none;
+		}
+		
+		a[href="/#wrapper"] {
+			display: block;
+			margin: 1em 0 0 0;
+			text-align: center;
+		}
+	}
+}
+
+
+@media (min-width: 768px) {
+    .content__wrap {
+        padding: 3em 2em;
+    }
+}
