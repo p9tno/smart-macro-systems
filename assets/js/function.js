@@ -49,6 +49,8 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
+    console.log('ready');
+    
     function scrollPage () {
         $(".toTop").on("click","a", function (event) {
             event.preventDefault();

@@ -25,16 +25,10 @@ add_action('admin_enqueue_scripts', 'admin_styles_scripts');
 
 function sms_setup() {
 	add_theme_support( 'title-tag' );
-
 	add_theme_support( 'post-thumbnails' );
-	// add_image_size( 'custom-lg', 900, 600, true);
-
-	// load_theme_textdomain( 'sms', get_template_directory() . '/languages' );
-
-	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			// 'header' => esc_html__( 'header', 'sms' ),
+			'header' => esc_html__( 'header', 'sms' ),
 		)
 	);
 
@@ -69,7 +63,7 @@ add_filter( 'mime_types', 'webp_upload_mimes' );
 add_action('admin_menu', 'remove_menus');
 function remove_menus() {
     //remove_menu_page('index.php');                # Консоль 
-    remove_menu_page('edit.php');                 # Записи 
+    // remove_menu_page('edit.php');                 # Записи 
     remove_menu_page('edit-comments.php');        # Комментарии 
     //remove_menu_page('edit.php?post_type=page');  # Страницы 
     //remove_menu_page('upload.php');               # Медиафайлы 
