@@ -20,6 +20,22 @@ function theme_get_required_plugins() {
             'file' => 'contact-form-7/wp-contact-form-7.php',
             'required' => true,
             'description' => 'Необходим для работы контактных форм на сайте.'
+        ),
+
+        'classic-editor' => array(
+            'name' => 'Classic Editor',
+            'slug' => 'classic-editor',
+            'file' => 'classic-editor/classic-editor.php',
+            'required' => false,
+            'description' => 'Возвращает классический редактор WordPress.'
+        ),
+
+        'cyr2lat' => array(
+            'name' => 'Cyr to Lat',
+            'slug' => 'cyr2lat',
+            'file' => 'cyr2lat/cyr-to-lat.php',
+            'required' => false,
+            'description' => 'Транслитерирует кириллические URL в латинские.'
         )
 
     ));

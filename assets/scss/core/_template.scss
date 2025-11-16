@@ -2,7 +2,7 @@
 
 body {
 	font-family: $main_font_family;
-	// color: $main_color;
+	color: $color_primary;
 	line-height: $main_line_height;
 	font-size: calc(.05 * 100vw + 0px);
 	background-color: $color_white;
@@ -55,73 +55,76 @@ body {
 		padding-bottom: 0.625em;
 	}
 
-	&:nth-child(2n + 1) {
-		.section__wrap {
-			background-color: $color_dark;
-			// color: $color_white;
-		}
-
-		.imagesList__img_inner {
-			border-color: $color_info;
-		}
-
-		.work__number {
-			color: $color_primary;
-		}
-		
-		.benefits__list_icon {
-			color: $color_dark;
-
-			&:before {
-			  background-color: $color_info;
+	.home & {
+		&:nth-child(2n + 1) {
+			.section__wrap {
+				background-color: $color_dark;
+				color: $color_white;
 			}
-		}
-	}
 	
-	&:nth-child(2n) {
-		.section__wrap {
-			background-color: $color_info;
-			// color: $color_white;
-
-			b {
+			.imagesList__img_inner {
+				border-color: $color_info;
+			}
+	
+			.work__number {
 				color: $color_primary;
 			}
-		}
-		
-		.section__title {
-			strong {
-				color: $color_primary;
-
+			
+			.benefits__list_icon {
+				color: $color_dark;
+	
+				&:before {
+				  background-color: $color_info;
+				}
 			}
 		}
 		
-		.bt,
-		.bb {
-			&:before {
-			  content: '';
-			  background-color: $color_primary;
+		&:nth-child(2n) {
+			.section__wrap {
+				background-color: $color_info;
+				color: $color_white;
+	
+				b {
+					color: $color_primary;
+				}
 			}
-		}
-		
-		.section__label {
-			background-color: $color_primary;
-		}
-
-		.imagesList__img_inner {
-			border-color: $color_primary;
-		}
-
-		.work__number {
-			color: $color_info;
-		}
-		
-		.benefits__list_icon {
-			color: $color_info;
-			&:before {
-			  background-color: $color_black;
+			
+			.section__title {
+				strong {
+					color: $color_primary;
+	
+				}
+			}
+			
+			.bt,
+			.bb {
+				&:before {
+				  content: '';
+				  background-color: $color_primary;
+				}
+			}
+			
+			.section__label {
+				background-color: $color_primary;
+			}
+	
+			.imagesList__img_inner {
+				border-color: $color_primary;
+			}
+	
+			.work__number {
+				color: $color_info;
+			}
+			
+			.benefits__list_icon {
+				color: $color_info;
+				&:before {
+				  background-color: $color_black;
+				}
 			}
 		}
 	}
+
 
 	&__wrap {
 		overflow: hidden;

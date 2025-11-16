@@ -73,7 +73,7 @@ function remove_menus() {
     // remove_menu_page('users.php');                # Пользователи 
     // remove_menu_page('tools.php');                # Инструменты 
     //remove_menu_page('options-general.php');      # Параметры 
-    remove_menu_page('edit.php?post_type=smart-custom-fields');
+    // remove_menu_page('edit.php?post_type=smart-custom-fields');
 }
 
 // Отключаем принудительную проверку новых версий WP, плагинов и темы в админке,
@@ -88,7 +88,10 @@ if (class_exists('Smart_Custom_Fields')) {
 	/**
 	 * SCF
 	 */
+	require get_template_directory() . '/inc/scf/fields/html-example.php';
+	require get_template_directory() . '/inc/scf/fields/link.php';
 	require get_template_directory() . '/inc/scf/home.php';
+
 	
 	
 	/**
