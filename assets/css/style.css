@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Global variables */
 /* ======================================================================== */
 @import "../fonts/icon/style.css";
@@ -1876,7 +1877,7 @@ body {
 }
 @media (min-width: 768px) {
   .footer .section__wrap {
-    padding: 3.5em 0;
+    padding: 7.5em 0;
   }
 }
 @media (max-width: 767px) {
@@ -1888,7 +1889,16 @@ body {
   .footer__content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+  }
+}
+.footer__form {
+  margin-top: 2em;
+}
+@media (min-width: 768px) {
+  .footer__form {
+    width: 35.375em;
+    margin-top: 0;
+    margin-left: 17.8em;
   }
 }
 .footer__logo {
@@ -1900,6 +1910,7 @@ body {
 @media (min-width: 768px) {
   .footer__logo {
     margin: 0;
+    width: 17.375em;
   }
 }
 .footer__list {
@@ -1912,9 +1923,6 @@ body {
   .footer__list {
     text-align: left;
     margin-left: 10.6em;
-    display: flex;
-    align-items: center;
-    gap: 2em;
   }
 }
 .footer__item {
@@ -1925,7 +1933,7 @@ body {
 }
 @media (min-width: 768px) {
   .footer__item {
-    margin-top: 0;
+    margin-top: 1.125em;
   }
 }
 .footer__item a,
@@ -1982,4 +1990,182 @@ body {
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.form {
+  margin-top: 0.625em;
+}
+@media (min-width: 768px) {
+  .form {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.625em;
+  }
+}
+.form__row {
+  position: relative;
+  margin-bottom: 0.375em;
+}
+.form__row:last-child {
+  margin-bottom: 0;
+}
+.form__row .btn,
+.form__row input:not([type]),
+.form__row input[type=date],
+.form__row input[type=email],
+.form__row input[type=number],
+.form__row input[type=password],
+.form__row input[type=search],
+.form__row input[type=tel],
+.form__row input[type=text],
+.form__row input[type=url],
+.form__row textarea {
+  width: 100%;
+}
+.form__row textarea {
+  min-height: 6em;
+  resize: vertical;
+}
+.form__row i {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #B8C0D6;
+  font-size: 1.25em;
+  right: 1em;
+  transition: 0.8s;
+}
+.form__row:hover i {
+  color: #7A9EB1;
+}
+
+input:not([type]),
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+textarea {
+  padding: 1em 2.5em 1em 1.25em;
+  border: 0.0625em solid #CCD3E6;
+  border-radius: 0.625em;
+  line-height: 1.375;
+  font-family: "Inter";
+  font-size: 1em;
+  font-weight: 300;
+  background-color: #FDFBF7;
+  color: #F5F1E8;
+  outline: none;
+  transition: 0.8s;
+}
+input:not([type]):hover,
+input[type=date]:hover,
+input[type=email]:hover,
+input[type=number]:hover,
+input[type=password]:hover,
+input[type=search]:hover,
+input[type=tel]:hover,
+input[type=text]:hover,
+input[type=url]:hover,
+textarea:hover {
+  border: 0.0625em solid #7A9EB1;
+}
+input:not([type]):focus,
+input[type=date]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=url]:focus,
+textarea:focus {
+  border: 0.0625em solid #7A9EB1;
+}
+input:not([type]).invalid,
+input[type=date].invalid,
+input[type=email].invalid,
+input[type=number].invalid,
+input[type=password].invalid,
+input[type=search].invalid,
+input[type=tel].invalid,
+input[type=text].invalid,
+input[type=url].invalid,
+textarea.invalid {
+  border: 0.0625em solid #C46A6A;
+}
+input:not([type])::-webkit-input-placeholder,
+input[type=date]::-webkit-input-placeholder,
+input[type=email]::-webkit-input-placeholder,
+input[type=number]::-webkit-input-placeholder,
+input[type=password]::-webkit-input-placeholder,
+input[type=search]::-webkit-input-placeholder,
+input[type=tel]::-webkit-input-placeholder,
+input[type=text]::-webkit-input-placeholder,
+input[type=url]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: rgba(245, 241, 232, 0.5);
+}
+input:not([type]):-moz-placeholder,
+input[type=date]:-moz-placeholder,
+input[type=email]:-moz-placeholder,
+input[type=number]:-moz-placeholder,
+input[type=password]:-moz-placeholder,
+input[type=search]:-moz-placeholder,
+input[type=tel]:-moz-placeholder,
+input[type=text]:-moz-placeholder,
+input[type=url]:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: rgba(245, 241, 232, 0.5);
+}
+input:not([type])::-moz-placeholder,
+input[type=date]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+input[type=number]::-moz-placeholder,
+input[type=password]::-moz-placeholder,
+input[type=search]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+input[type=text]::-moz-placeholder,
+input[type=url]::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: rgba(245, 241, 232, 0.5);
+}
+input:not([type]):-ms-input-placeholder,
+input[type=date]:-ms-input-placeholder,
+input[type=email]:-ms-input-placeholder,
+input[type=number]:-ms-input-placeholder,
+input[type=password]:-ms-input-placeholder,
+input[type=search]:-ms-input-placeholder,
+input[type=tel]:-ms-input-placeholder,
+input[type=text]:-ms-input-placeholder,
+input[type=url]:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: rgba(245, 241, 232, 0.5);
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+/* Для Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+
+/* Для Firefox */
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }

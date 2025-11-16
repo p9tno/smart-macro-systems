@@ -50,6 +50,14 @@ function global_theme_settings($settings, $type, $id, $meta_type, $types)
 					'true_label'  => 'Yes', // Текст радио-кнопки (true)
 					'false_label' => 'No', // Текст радио-кнопки (false)
 				),
+				array(
+					'type'        => 'text', // Тип поля. Обязательный.
+					'name'        => 'contacts_form', // Ключ поля. Обязательный.
+					'label'       => 'Contact Form', // Заголовок поля.
+					'default'     => '', // Значение по умолчанию.
+					'instruction' => '', // Текст над полем.
+					'notes'       => '[contact-form-7 id="1b2c808" title="Contact form 1"]', // Текст под полем.
+				),
 			)
 		);
 
