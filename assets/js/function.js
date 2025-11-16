@@ -110,7 +110,7 @@ $(document).ready(function() {
             $( 'body' ).removeClass( 'nav-open' );
         });
     };
-    scroolTo();
+    // scroolTo();
 
     function showModal() {
         $('.show_modal_js').on('click', function (e) {

@@ -13,10 +13,16 @@
 		<?php get_template_part( 'template-parts/parts/part', 'preloader' ); ?>
 	<?php } ?>
 	<?php wp_body_open(); ?>
+
+	<?php 
+	// Проверяем все необходимые плагины
+	$required_plugins = theme_get_required_plugins();
+	if (theme_check_required_plugins($required_plugins)) { ?>
 	<!-- start wrapper-->
 	<div class="wrapper" id="wrapper">
 		<?php get_template_part( 'template-parts/content', 'header' ); ?>
 		<!-- start main -->
 		<main class="main_content">
+	<?php } ?>
 
 

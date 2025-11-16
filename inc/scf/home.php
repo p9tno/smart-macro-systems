@@ -29,13 +29,6 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'instruction' => 'Выберите секцию. Перетащите - чтобы изменить порядок.',
                 ),
                 array(
-                    'type'        => 'text',
-                    'name'        => 'menu_title',
-                    'label'       => 'Название в меню',
-                    'instruction' => 'Введите название для пункта меню. Если оставить пустым, пункт не добавится в меню',
-                    'default'     => '',
-                ),
-                array(
                     'type'        => 'checkbox',
                     'name'        => 'section_active',
                     'label'       => 'Активна',
