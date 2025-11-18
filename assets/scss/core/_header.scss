@@ -1,10 +1,11 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
+	// position: ;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// border: 1px solid #000;
 
 	padding: 0.3125em 0;
 	@media (min-width: 768px) {
@@ -17,10 +18,15 @@
 		justify-content: space-between;
 		align-items: center;
 
+		
 		@media (min-width: 768px) {
 			justify-content: flex-start;
 			margin-top: 1em;
-			max-width: 50em;
+			background-color: $color_primary;
+			border-radius: 1.25em;
+			max-width: $wrap_width;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 
@@ -135,6 +141,72 @@
 	}
 }
 
+// .menu {
+// 	margin: 0;
+// 	padding: 0;
+// 	list-style: none;
+
+// 	@media (min-width: 768px) {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 1.25em;
+// 		flex-wrap: wrap;
+// 	}
+
+// 	&-item {
+// 		text-align: center;
+// 		margin-top: 0.875em;
+
+// 		&:first-child {
+// 			margin-top: 0;
+// 		}
+// 		@media (min-width: 768px) {
+// 			text-align: left;
+// 			margin-top: 0;
+// 		}
+
+// 		a {
+// 			position: relative;
+
+// 			font-family: $main_font_family;
+// 			font-weight: 500;
+// 			font-size: 1em;
+
+// 			color: $color_white;
+
+// 			text-decoration: none;
+// 			text-transform: uppercase;
+// 			line-height: 1.8;
+
+// 			@media (min-width: 768px) {
+
+// 				font-size: 0.875em;
+
+// 				&:hover {
+// 					color: #7892D5;
+// 				}
+// 			}
+
+// 		}
+// 	}
+
+// 	.current-menu-item {
+// 		a {
+// 			color: #7892D5;
+
+// 			&:after {
+// 				width: 100%;
+// 			}
+// 		}
+// 	}
+// }
+
+
+.nav-open {
+	overflow: hidden;
+}
+
+
 .menu {
 	margin: 0;
 	padding: 0;
@@ -145,87 +217,233 @@
 		align-items: center;
 		gap: 1.25em;
 		flex-wrap: wrap;
+		position: relative;
 	}
 
 	&-item {
 		text-align: center;
 		margin-top: 0.875em;
+		position: relative;
 
 		&:first-child {
 			margin-top: 0;
 		}
+		
 		@media (min-width: 768px) {
 			text-align: left;
 			margin-top: 0;
 		}
 
-		a {
-			position: relative;
-
-			font-family: $main_font_family;
-			font-weight: 500;
-			font-size: 1em;
-
-			color: $color_white;
-
-			text-decoration: none;
-			text-transform: uppercase;
-			line-height: 1.8;
-
-			&:after {
-				content: '';
-				position: absolute;
-				left: 50%;
-				transform: translateX(-50%);
-				bottom: -0.125em;
-
-				display: inline-block;
-				width: 0;
-				border-bottom: 1px solid;
-				border-color: inherit;
+		// Пункты с подменю
+		&.menu-item-has-children {
+			> a {
+				position: relative;
+				padding-right: 1.5em;
 
 				@media (min-width: 768px) {
-					transition: width 0.5s;
-				}
-			}
-
-			@media (min-width: 768px) {
-
-				font-size: 0.875em;
-
-				&:hover {
-					color: #7892D5;
-
 					&:after {
-						width: 100%;
+						content: '▼';
+						position: absolute;
+						right: 0.5em;
+						top: 50%;
+						transform: translateY(-50%);
+						font-size: 0.7em;
+						transition: transform 0.3s ease;
 					}
 				}
 			}
 
+			@media (min-width: 768px) {
+				&:hover > a:after {
+					transform: translateY(-50%) rotate(180deg);
+				}
+			}
+		}
+
+		a {
+			position: relative;
+			font-family: $main_font_family;
+			font-weight: 500;
+			font-size: 1em;
+			color: $color_white;
+			text-decoration: none;
+			text-transform: uppercase;
+			line-height: 1.8;
+			display: block;
+			transition: color 0.3s ease;
+
+			@media (min-width: 768px) {
+				font-size: 0.875em;
+
+				&:hover {
+					color: #7892D5;
+				}
+			}
 		}
 	}
 
+	// Подменю (второй уровень)
+	.sub-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		// Мобильная версия - скрываем подменю
+		@media (max-width: 767px) {
+			display: none;
+		}
+
+		@media (min-width: 768px) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 0.25em;
+			box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.1);
+			min-width: 12.5em;
+			padding: 0.5em 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(0.625em);
+			transition: all 0.3s ease;
+			// Важно: показываем подменю для десктопа
+			display: block !important;
+		}
+
+		.menu-item {
+			margin: 0;
+			text-align: left;
+
+			a {
+				color: #333;
+				font-size: 0.875em;
+				padding: 0.5em 1em;
+				text-transform: none;
+				line-height: 1.4;
+				transition: all 0.3s ease;
+				white-space: nowrap;
+
+				&:hover {
+					@media (min-width: 768px) {
+						color: #7892D5;
+						background: rgba(120, 146, 213, 0.1);
+					}
+				}
+
+				@media (max-width: 767px) {
+					color: $color_white;
+					padding: 0.75em 1em 0.75em 2em;
+					font-size: 0.9em;
+					border-bottom: 0.0625em solid rgba(255, 255, 255, 0.1);
+					text-transform: none;
+				}
+			}
+
+			// Пункты с подменю во втором уровне
+			&.menu-item-has-children {
+				position: relative;
+
+				> a {
+					position: relative;
+					padding-right: 2.5em;
+
+					@media (min-width: 768px) {
+						&:after {
+							content: '▶';
+							position: absolute;
+							right: 1em;
+							top: 50%;
+							transform: translateY(-50%);
+							font-size: 0.6em;
+						}
+					}
+				}
+
+				// Подменю третьего уровня
+				.sub-menu {
+					@media (min-width: 768px) {
+						top: -0.5em;
+						left: 100%;
+						transform: translateX(0.625em);
+					}
+
+					@media (max-width: 767px) {
+						.menu-item a {
+							padding-left: 3em;
+							font-size: 0.85em;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Показ подменю на десктопе
+	@media (min-width: 768px) {
+		.menu-item-has-children:hover > .sub-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+
+		.sub-menu .menu-item-has-children:hover > .sub-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+	}
+
+	// Активный пункт меню
 	.current-menu-item {
 		a {
 			color: #7892D5;
+		}
 
-			&:after {
-
-				width: 100%;
+		// Активный пункт в подменю
+		.sub-menu & a {
+			@media (min-width: 768px) {
+				color: #7892D5;
+				background: rgba(120, 146, 213, 0.1);
 			}
 		}
 	}
 }
 
-// // stiky menu
-// .stiky {
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	z-index: 1;
-// }
+// Мобильные стили
+@media (max-width: 767px) {
+	.menu-item-has-children {
+		position: relative;
 
-.nav-open {
-	overflow: hidden;
+		> a {
+			padding-right: 3em !important;
+		}
+	}
+
+	.menu-toggle {
+		position: absolute;
+		right: 0.5em;
+		top: 1em;
+		// transform: translateY(-50%);
+		background: none;
+		border: none;
+		color: $color_white;
+		font-size: 1.2em;
+		width: 2em;
+		height: 2em;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.125em;
+		transition: background-color 0.3s ease;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+		}
+	}
+
+	// Показываем подменю когда активно
+	.sub-menu.menu-open {
+		display: block !important;
+	}
 }

@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="container_center">
+
         <div class="header__content">
             <?php if (class_exists('SCF') && SCF::get_option_meta('my-theme-settings', 'option_header_img')) { ?>
                 <a class="header__logo" href="<?php echo esc_url(home_url("/")); ?>">
@@ -20,7 +20,7 @@
             </div>
             <div class="header__toggle" id="toggle"><span></span></div>
         </div>
-    </div>
+ 
 </header>
 
 <?php
