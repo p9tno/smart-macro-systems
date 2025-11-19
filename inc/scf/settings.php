@@ -63,26 +63,25 @@ function global_theme_settings($settings, $type, $id, $meta_type, $types) {
                     'name'        => 'form_html_example',
                     'label'       => 'HTML Form Structure',
                     'default'     => '',
-                    'html_content' => '<div class="form">
-						<div class="form__row">
-							<input type="text" placeholder="First Name" /><i class="icon_s_person"></i>
-						</div>
-						<div class="form__row">
-							<input type="text" placeholder="Last Name" /><i class="icon_s_person"></i>
-						</div>
-						<div class="form__row">
-							<input type="text" placeholder="Phone Number" /><i class="icon_s_phone"></i>
-						</div>
-						<div class="form__row">
-							<input type="email" placeholder="Email" /><i class="icon_s_email"></i>
-						</div>
-						<div class="form__row">
-							<input type="text" placeholder="What Are You Interested In" /><i class="icon_s_person"></i>
-						</div>
-						<div class="form__row">
-							<button class="btn" type="submit">Submit</button>
-						</div>
-					</div>',
+                    'html_content' => '
+<div class="form">
+    <div class="form__row">
+        [text name placeholder "Имя"]<i class="icon_s_person"></i>
+    </div>
+    <div class="form__row">
+        [text family placeholder "Фамилия"]<i class="icon_s_person"></i>
+    </div>
+    <div class="form__row">
+        [tel* phone placeholder "Номер телефона"]<i class="icon_s_phone"></i>
+    </div>
+    <div class="form__row">
+        [email* email placeholder "Электронная почта"]<i class="icon_s_email"></i>
+    </div>
+    <div class="form__row">
+        <button class="btn" type="submit">Отправить</button>
+    </div>
+</div>
+                    ',
                     'instruction' => 'Пример HTML кода формы для справки:',
                     'notes'       => 'Этот код не сохраняется и служит только примером',
                 ),
