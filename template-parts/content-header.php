@@ -31,11 +31,3 @@
 ?>
 
 </h1>
-
-<!-- 
-<ul id="menu-header" class="menu">
-    <li id="menu-item-11" class="menu-item">
-        <a href="https://theme.sms.workpreview.ru/" aria-current="page">home page</a>
-    </li>
-    <li id="menu-item-12" class="menu-item"><a href="#benefits">test</a></li>
-</ul> -->

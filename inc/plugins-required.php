@@ -36,6 +36,14 @@ function theme_get_required_plugins() {
             'file' => 'cyr2lat/cyr-to-lat.php',
             'required' => false,
             'description' => 'Транслитерирует кириллические URL в латинские.'
+        ),
+
+        'svg-support' => array(
+            'name' => 'SVG Support',
+            'slug' => 'svg-support',
+            'file' => 'svg-support/svg-support.php',
+            'required' => false,
+            'description' => 'Комплексное решение SVG для WordPress.'
         )
 
     ));

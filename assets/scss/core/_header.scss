@@ -1,28 +1,22 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	// position: ;
-	// top: 0;
-	// left: 0;
-	// width: 100%;
-	// border: 1px solid #000;
-
 	padding: 0.3125em 0;
 	@media (min-width: 768px) {
 		padding: 0.625em 0;
-
 	}
 
 	&__content {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-
+		justify-content: center;
+		// padding: 0.5em 1em;
 		
+		background-color: $color_primary;
 		@media (min-width: 768px) {
 			justify-content: flex-start;
-			margin-top: 1em;
-			background-color: $color_primary;
+			gap: 2.875em;
+			padding: 1em 5.375em;
 			border-radius: 1.25em;
 			max-width: $wrap_width;
 			margin-left: auto;
@@ -31,12 +25,20 @@
 	}
 
 	&__logo {
+		flex: none;
 		display: block;
-		width: 6.8125em;
-		@media (min-width: 768px) {
-			width: 5em;
-			flex: none;
+		width: 5em;
+		padding: 0.25em;
+		@media (max-width: 767px) {
+		  min-height: 3.5em;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
 		}
+		@media (min-width: 768px) {
+		  padding: 0;
+		}
+	
 
 		img {
 			display: block;
@@ -63,7 +65,7 @@
 			height: 2.375em;
 			border-radius: 0.25em;
 
-			background-color: $color_info;
+			background-color: $color_info_dark;
 			color: $color_white;
 			cursor: pointer;
 
@@ -112,9 +114,6 @@
 
 	}
 
-	&__nav {
-		margin-left: 2.875em;
-	}
 }
 
 @media (max-width: 767px) {
@@ -125,82 +124,23 @@
 		transform: translate(-50%, -100%);
 		z-index: 10;
 
-		padding: 6.7em 1em 6.625em;
+		padding: 2.5em 1em;
 		width: 19.375em;
-		border-bottom: 0.625em solid #3B5598;
+		max-height: 70vh;
+		border-bottom: 0.625em solid $color_info_dark;
 		border-radius: 0.25em;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 
 		background-color: $color_black;
 		transition: 1s;
+		overflow-y: auto;
 
 		&.active {
 			transform: translate(-50%, 0);
 		}
 	}
 }
-
-// .menu {
-// 	margin: 0;
-// 	padding: 0;
-// 	list-style: none;
-
-// 	@media (min-width: 768px) {
-// 		display: flex;
-// 		align-items: center;
-// 		gap: 1.25em;
-// 		flex-wrap: wrap;
-// 	}
-
-// 	&-item {
-// 		text-align: center;
-// 		margin-top: 0.875em;
-
-// 		&:first-child {
-// 			margin-top: 0;
-// 		}
-// 		@media (min-width: 768px) {
-// 			text-align: left;
-// 			margin-top: 0;
-// 		}
-
-// 		a {
-// 			position: relative;
-
-// 			font-family: $main_font_family;
-// 			font-weight: 500;
-// 			font-size: 1em;
-
-// 			color: $color_white;
-
-// 			text-decoration: none;
-// 			text-transform: uppercase;
-// 			line-height: 1.8;
-
-// 			@media (min-width: 768px) {
-
-// 				font-size: 0.875em;
-
-// 				&:hover {
-// 					color: #7892D5;
-// 				}
-// 			}
-
-// 		}
-// 	}
-
-// 	.current-menu-item {
-// 		a {
-// 			color: #7892D5;
-
-// 			&:after {
-// 				width: 100%;
-// 			}
-// 		}
-// 	}
-// }
-
 
 .nav-open {
 	overflow: hidden;
@@ -221,7 +161,6 @@
 	}
 
 	&-item {
-		text-align: center;
 		margin-top: 0.875em;
 		position: relative;
 
@@ -230,7 +169,6 @@
 		}
 		
 		@media (min-width: 768px) {
-			text-align: left;
 			margin-top: 0;
 		}
 
@@ -238,9 +176,9 @@
 		&.menu-item-has-children {
 			> a {
 				position: relative;
-				padding-right: 1.5em;
-
+				
 				@media (min-width: 768px) {
+					padding-right: 1.5em;
 					&:after {
 						content: '▼';
 						position: absolute;
@@ -268,7 +206,7 @@
 			color: $color_white;
 			text-decoration: none;
 			text-transform: uppercase;
-			line-height: 1.8;
+			line-height: 1.4;
 			display: block;
 			transition: color 0.3s ease;
 
@@ -276,7 +214,7 @@
 				font-size: 0.875em;
 
 				&:hover {
-					color: #7892D5;
+					color: $color_info_dark;
 				}
 			}
 		}
@@ -288,16 +226,15 @@
 		margin: 0;
 		padding: 0;
 
-		// Мобильная версия - скрываем подменю
 		@media (max-width: 767px) {
 			display: none;
 		}
 
 		@media (min-width: 768px) {
 			position: absolute;
-			top: 100%;
+			top: calc(100% + 1.5em);
 			left: 0;
-			background: rgba(255, 255, 255, 0.95);
+			background: $color_primary;
 			border-radius: 0.25em;
 			box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.1);
 			min-width: 12.5em;
@@ -306,16 +243,23 @@
 			visibility: hidden;
 			transform: translateY(0.625em);
 			transition: all 0.3s ease;
-			// Важно: показываем подменю для десктопа
 			display: block !important;
+
+			&:before {
+			  content: '';
+			  display: block;
+			  position: absolute;
+			  bottom: 100%;
+			  left: 0;
+			  width: 100%;
+			  height: 1.5em;
+			}
 		}
 
 		.menu-item {
 			margin: 0;
-			text-align: left;
 
 			a {
-				color: #333;
 				font-size: 0.875em;
 				padding: 0.5em 1em;
 				text-transform: none;
@@ -325,16 +269,14 @@
 
 				&:hover {
 					@media (min-width: 768px) {
-						color: #7892D5;
-						background: rgba(120, 146, 213, 0.1);
+						color: $color_info_dark;
 					}
 				}
 
 				@media (max-width: 767px) {
 					color: $color_white;
-					padding: 0.75em 1em 0.75em 2em;
-					font-size: 0.9em;
-					border-bottom: 0.0625em solid rgba(255, 255, 255, 0.1);
+					padding: 0.5em 1em;
+					font-size: 1em;
 					text-transform: none;
 				}
 			}
@@ -345,7 +287,9 @@
 
 				> a {
 					position: relative;
-					padding-right: 2.5em;
+					@media (max-width: 767px) {
+						margin-right: 2.5em;
+					}
 
 					@media (min-width: 768px) {
 						&:after {
@@ -374,6 +318,12 @@
 						}
 					}
 				}
+
+				.menu-toggle {
+					@media (max-width: 767px) {
+						top: 0.4em;
+					}
+				}
 			}
 		}
 	}
@@ -396,14 +346,14 @@
 	// Активный пункт меню
 	.current-menu-item {
 		a {
-			color: #7892D5;
+			color: $color_info_dark;
 		}
 
 		// Активный пункт в подменю
 		.sub-menu & a {
 			@media (min-width: 768px) {
-				color: #7892D5;
-				background: rgba(120, 146, 213, 0.1);
+				color: $color_info_dark;
+				// background: rgba(120, 146, 213, 0.1);
 			}
 		}
 	}
@@ -415,31 +365,30 @@
 		position: relative;
 
 		> a {
-			padding-right: 3em !important;
+			margin-right: 3em;
 		}
 	}
 
 	.menu-toggle {
-		position: absolute;
-		right: 0.5em;
-		top: 1em;
-		// transform: translateY(-50%);
-		background: none;
-		border: none;
-		color: $color_white;
-		font-size: 1.2em;
-		width: 2em;
-		height: 2em;
-		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 0.125em;
-		transition: background-color 0.3s ease;
+		border: 0;
 
-		&:hover {
-			background: rgba(255, 255, 255, 0.1);
-		}
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 5;
+
+		background: $color_info_dark;
+		color: $color_white;
+		font-size: 1.2em;
+		width: 1.125em;
+		height: 1.125em;
+		transition: 0.3s ease;
+		line-height: 1;
+
 	}
 
 	// Показываем подменю когда активно
