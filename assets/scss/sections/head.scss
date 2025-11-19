@@ -1,0 +1,57 @@
+.head {
+    .section__wrap {
+        background-color: $color_info;
+        color: $color_white;
+
+        b {
+            color: $color_primary;
+        }
+        
+        @media (max-width: 767px) {
+            margin: 0 0.3125em;
+        }
+
+        @media (min-width: 768px) {
+            display: flex;
+            
+        }
+    }
+
+    .section__title {
+        font-size: 1.875em;
+        @media (min-width: 768px) {
+            font-size: 3.75em;
+        }
+    }
+
+    &__content {
+        padding: 1.875em 1em;
+
+        @media (min-width: 768px) {
+            padding: 5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 1em;
+            width: 58.75em;
+            height: 40em;
+        }
+    }
+
+
+
+    &__img {
+        overflow: hidden;
+        height: 25em;
+        margin-top: -0.6em;
+    
+        @media (min-width: 768px) {
+            margin-top: 0;
+            width: 60em;
+            height: 40em;
+        }
+    }
+
+}
