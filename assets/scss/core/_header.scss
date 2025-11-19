@@ -345,7 +345,7 @@
 
 	// Активный пункт меню
 	.current-menu-item {
-		a {
+		> a {
 			color: $color_info_dark;
 		}
 

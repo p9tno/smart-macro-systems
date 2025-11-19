@@ -1,0 +1,24 @@
+.post-navigation-sections {
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        @media (min-width: 768px) {
+          flex-direction: row;
+          gap: 1em;
+          align-items: center;
+          justify-content: space-between;
+        }
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .nav-arrow {
+        font-size: 1.25em;
+    }
+}

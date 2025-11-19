@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    padding: 2em 0;
+
+    > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 1.75em;
+        height: 1.75em;
+        border-radius: 0.25em;
+        background:$color_primary;
+        color: $main_color;
+
+        text-decoration: none;
+
+        &.current {
+            background: $color_info_dark;
+        }
+
+        &.dots,
+        &.next,
+        &.prev {
+            background: transparent;
+            color: $color_primary;
+            font-size: 1.5em;
+        }
+
+        
+    }
+
+
+}

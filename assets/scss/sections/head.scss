@@ -24,6 +24,26 @@
         }
     }
 
+    &__caption {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @media (min-width: 768px) {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .section__title {
+            margin: 0;
+        }
+    }
+
+    &__desc {
+        text-align: right;
+    }
+
     &__content {
         padding: 1.875em 1em;
 
