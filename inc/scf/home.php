@@ -54,7 +54,7 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                 array(
                     'type'        => 'wysiwyg',
                     'name'        => 'firstscreen_text',
-                    'label'       => 'Текст для десктопа',
+                    'label'       => 'Текст',
                 ),
                 array(
                     'type'        => 'image',
@@ -189,31 +189,22 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'instruction' => 'Чтобы выделить текст другим цветом, оберните текст в тег strong',
                     'notes'       => 'Текст <strong>текст другого цвета</strong>',
                 ),
-			)
-		);
-        $Section->add_group(
-			'homeExamples_list',
-			true,
-			array(
                 array(
-                    'type'        => 'image',
-                    'name'        => 'homeExamples_list_img',
-                    'label'       => 'Изображение',
-                    'size'        => 'thumbnail',
+                    'type'        => 'relation', // Тип поля. Обязательный.
+                    'name'        => 'homeExamples_relation', // Ключ поля. Обязательный.
+                    'label'       => 'Выьерите записи, максимум 4', // Заголовок поля.
+                    'post-type'   => array('post'), // Типы записей.
+                    'limit'       => 4, // Максимальное количество выбираемых элементов.
                 ),
                 array(
-					'name'        => 'homeExamples_list_title',
-					'label'       => 'Заголовок',
-					'type'        => 'text',
-				),
-                array(
-					'name'        => 'homeExamples_list_text',
-					'label'       => 'Текст',
-					'type'        => 'textarea',
-                    'rows'        => 2,
+					'type'        => 'link',
+					'name'        => 'homeExamples_link',
+					'label'       => 'Кнопка',
+					'return_format' => 'array',
 				),
 			)
 		);
+  
 		$settings[] = $Section;
 	}
 

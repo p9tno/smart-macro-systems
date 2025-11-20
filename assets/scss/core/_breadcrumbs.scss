@@ -1,0 +1,45 @@
+.breadcrumbs {
+  
+	.kama_breadcrumbs {
+        font-family: $second_font_family;
+		line-height: 1;
+		font-weight: 500;
+		display:inline-block;
+		font-size: 0.5em;
+		
+		@media (min-width: 768px) {
+			font-size: 1em;
+		}
+
+		a {
+			text-decoration: none;
+            color: $color_info_dark;
+		}
+
+		span {
+			font-size: 1em;
+
+			> a {
+				> span {
+					font-size: 1em;
+				}
+			}
+		}
+
+		.kb_sep {
+			display: inline-block;
+            width: 0.25em;
+            height: 0.25em;
+            border-radius: 100%;
+            background: $color_info_dark;
+			transform: translateY(-0.2em);
+			margin-left: 0.25em;
+
+		}
+
+		.kb_title {
+			transition: color 0.3s;
+		}
+
+	}
+}

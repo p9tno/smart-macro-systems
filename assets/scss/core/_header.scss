@@ -232,6 +232,7 @@
 
 		@media (min-width: 768px) {
 			position: absolute;
+			z-index: 10;
 			top: calc(100% + 1.5em);
 			left: 0;
 			background: $color_primary;

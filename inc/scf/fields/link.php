@@ -25,15 +25,15 @@ class Smart_Custom_Fields_Field_Link extends Smart_Custom_Fields_Field_Base {
         $data = $this->parse_value( $value );
         
         return sprintf(
-            '<div class="scf-link-field">
-                <div style="margin-bottom:10px;">
+            '<div class="scf-link-field" style="display:flex;align-items: flex-end;gap: 16px;">
+                <div style="margin-bottom:10px;flex-grow:1;">
                     <label style="display:block; margin-bottom:5px; font-weight:bold;">Title</label>
                     <input type="text" 
                         class="scf-link-title widefat" 
                         value="%s" 
                         placeholder="Link text" %s />
                 </div>
-                <div style="margin-bottom:10px;">
+                <div style="margin-bottom:10px;flex-grow:1">
                     <label style="display:block; margin-bottom:5px; font-weight:bold;">URL</label>
                     <input type="text" 
                         class="scf-link-url widefat" 
@@ -41,7 +41,7 @@ class Smart_Custom_Fields_Field_Link extends Smart_Custom_Fields_Field_Base {
                         placeholder="https://" %s />
                 </div>
                 <div style="margin-bottom:10px;">
-                    <label style="display:inline-flex; align-items:center; gap:5px;">
+                    <label style="display:inline-flex; align-items:center; gap:5px;margin-bottom: 5px;">
                         <input type="checkbox" 
                             class="scf-link-target" 
                             value="_blank" %s %s />

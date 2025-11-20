@@ -1792,6 +1792,7 @@ body {
 @media (min-width: 768px) {
   .menu .sub-menu {
     position: absolute;
+    z-index: 10;
     top: calc(100% + 1.5em);
     left: 0;
     background: #2A2A2A;
@@ -2305,6 +2306,8 @@ body {
   }
 }
 .homeExamples__title {
+  text-decoration: none;
+  color: #FDFBF7;
   font-weight: 700;
 }
 @media (min-width: 768px) {
@@ -3262,4 +3265,39 @@ input[type=number] {
   background: transparent;
   color: #2A2A2A;
   font-size: 1.5em;
+}
+
+.breadcrumbs .kama_breadcrumbs {
+  font-family: "Montserrat";
+  line-height: 1;
+  font-weight: 500;
+  display: inline-block;
+  font-size: 0.5em;
+}
+@media (min-width: 768px) {
+  .breadcrumbs .kama_breadcrumbs {
+    font-size: 1em;
+  }
+}
+.breadcrumbs .kama_breadcrumbs a {
+  text-decoration: none;
+  color: #7892D5;
+}
+.breadcrumbs .kama_breadcrumbs span {
+  font-size: 1em;
+}
+.breadcrumbs .kama_breadcrumbs span > a > span {
+  font-size: 1em;
+}
+.breadcrumbs .kama_breadcrumbs .kb_sep {
+  display: inline-block;
+  width: 0.25em;
+  height: 0.25em;
+  border-radius: 100%;
+  background: #7892D5;
+  transform: translateY(-0.2em);
+  margin-left: 0.25em;
+}
+.breadcrumbs .kama_breadcrumbs .kb_title {
+  transition: color 0.3s;
 }

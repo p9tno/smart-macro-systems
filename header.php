@@ -21,6 +21,7 @@
 	<!-- start wrapper-->
 	<div class="wrapper" id="wrapper">
 		<?php get_template_part( 'template-parts/content', 'header' ); ?>
+		<?php get_template_part( 'template-parts/parts/part', 'breadcrumbs' ); ?>
 		<!-- start main -->
 		<main class="main_content">
 	<?php } ?>

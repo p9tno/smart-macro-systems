@@ -73,98 +73,23 @@ function remove_menus() {
     // remove_menu_page('users.php');                # Пользователи 
     // remove_menu_page('tools.php');                # Инструменты 
     // remove_menu_page('options-general.php');      # Параметры 
-    // remove_menu_page('edit.php?post_type=smart-custom-fields');
+    remove_menu_page('edit.php?post_type=smart-custom-fields');
 }
 
 // Отключаем принудительную проверку новых версий WP, плагинов и темы в админке,
 require get_template_directory() . '/inc/disable-verification.php';
-require get_template_directory() . '/inc/helpers.php';
+
 
 require_once get_template_directory() . '/inc/plugins-required.php';
 
+/**
+ * Подключаем настройки Smart Custom Fields
+ */
+require get_template_directory() . '/inc/scf/scf-init.php';
 
-// Проверяем существует ли класс Smart_Custom_Fields
-if (class_exists('Smart_Custom_Fields')) {
-	/**
-	 * SCF
-	 */
-	require get_template_directory() . '/inc/scf/fields/html-example.php';
-	require get_template_directory() . '/inc/scf/fields/link.php';
+/**
+ * Подключаем утилиты темы
+ */
+require get_template_directory() . '/inc/utilities.php';
 
-	require get_template_directory() . '/inc/scf/home.php';
-
-	/**
-	 * SCF settings. my-theme-settings
-	*/
-	add_action('init', function () {
-		SCF::add_options_page( 'Настройки сайта', 'Настройки сайта', 'manage_options', 'my-theme-settings','dashicons-welcome-widgets-menus', 150 );
-	});
-	require get_template_directory() . '/inc/scf/settings.php';
-}
-
-
-// удалить тег p в contact form 7
-add_filter( 'wpcf7_autop_or_not', '__return_false');
-
-// Убираем префиксы у архивных заголовков
-add_filter( 'get_the_archive_title', function( $title ) {
-    if ( is_category() ) {
-        $title = single_cat_title( '', false );
-    } elseif ( is_tag() ) {
-        $title = single_tag_title( '', false );
-    } elseif ( is_author() ) {
-        $title = '<span class="vcard">' . get_the_author() . '</span>';
-    } elseif ( is_tax() ) { // для произвольных таксономий
-        $title = single_term_title( '', false );
-    } elseif ( is_post_type_archive() ) {
-        $title = post_type_archive_title( '', false );
-    }
-    return $title;
-});
-
-
-function the_excerpt_max_charlength( $charlength ){
-	$excerpt = get_the_excerpt();
-	$charlength++;
-
-	if ( mb_strlen( $excerpt ) > $charlength ) {
-		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
-		$exwords = explode( ' ', $subex );
-		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-		if ( $excut < 0 ) {
-			echo mb_substr( $subex, 0, $excut );
-		} else {
-			echo $subex;
-		}
-		echo '...';
-	} else {
-		echo $excerpt;
-	}
-}
-
-function the_paginate( $query = null ) {
-    // Если запрос не передан, используем глобальный
-    if ( ! $query ) {
-        global $wp_query;
-        $query = $wp_query;
-    }
-    
-    if ( $query->max_num_pages <= 1 ) {
-        return;
-    }
-    
-    $paged = get_query_var('paged') ? intval(get_query_var('paged')) : 1;
-    
-    echo '<nav class="pagination">';
-    echo paginate_links( array(
-        'base'      => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-        'format'    => '?paged=%#%',
-        'current'   => max( 1, $paged ),
-        'total'     => $query->max_num_pages,
-        'prev_text' => '←',
-        'next_text' => '→',
-        'mid_size'  => 1,
-        'end_size'  => 1
-    ) );
-    echo '</nav>';
-}
+require get_template_directory() . '/inc/breadcrumb.php';
