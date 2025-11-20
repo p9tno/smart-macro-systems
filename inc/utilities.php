@@ -122,29 +122,3 @@ function the_paginate($query = null) {
     ));
     echo '</nav>';
 }
-
-/**
- * Простая функция для вывода ссылки - только для текущего поста
- */
-function display_simple_cta_link( $field_name = 'cta_button', $default_title = 'Click Here', $class = 'cta-button' ) {
-    if ( ! function_exists( 'SCF::get' ) ) {
-        return;
-    }
-    
-    $link = SCF::get( $field_name );
-    
-    if ( empty( $link['url'] ) ) {
-        return;
-    }
-    
-    $title = ! empty( $link['title'] ) ? $link['title'] : $default_title;
-    
-    echo '<a href="' . esc_url( $link['url'] ) . '" 
-              target="' . esc_attr( $link['target'] ?? '_self' ) . '" 
-              class="' . esc_attr( $class ) . '">' 
-              . esc_html( $title ) . 
-          '</a>';
-}
-
-// Просто вставляем там где нужно
-// display_simple_cta_link( 'cta_button', 'Get Started', 'main-cta' );

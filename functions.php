@@ -61,7 +61,6 @@ function webp_upload_mimes( $existing_mimes ) {
 }
 add_filter( 'mime_types', 'webp_upload_mimes' );
 
-add_action('admin_menu', 'remove_menus');
 function remove_menus() {
     // remove_menu_page('index.php');                # Консоль 
     // remove_menu_page('edit.php');                 # Записи 
@@ -75,11 +74,14 @@ function remove_menus() {
     // remove_menu_page('options-general.php');      # Параметры 
     remove_menu_page('edit.php?post_type=smart-custom-fields');
 }
+add_action('admin_menu', 'remove_menus');
 
 // Отключаем принудительную проверку новых версий WP, плагинов и темы в админке,
 require get_template_directory() . '/inc/disable-verification.php';
 
-
+/**
+ * Подключаем список необходимых плагинов
+ */
 require_once get_template_directory() . '/inc/plugins-required.php';
 
 /**
@@ -92,4 +94,7 @@ require get_template_directory() . '/inc/scf/scf-init.php';
  */
 require get_template_directory() . '/inc/utilities.php';
 
+/**
+ * Подключаем хлебные крошки
+ */
 require get_template_directory() . '/inc/breadcrumb.php';

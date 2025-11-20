@@ -196,12 +196,12 @@ function home_page_fields($settings, $type, $id, $meta_type, $types)
                     'post-type'   => array('post'), // Типы записей.
                     'limit'       => 4, // Максимальное количество выбираемых элементов.
                 ),
-                array(
-					'type'        => 'link',
-					'name'        => 'homeExamples_link',
-					'label'       => 'Кнопка',
-					'return_format' => 'array',
-				),
+                // array(
+				// 	'type'        => 'link',
+				// 	'name'        => 'homeExamples_link',
+				// 	'label'       => 'Кнопка',
+				// 	'return_format' => 'array',
+				// ),
 			)
 		);
   
