@@ -100,5 +100,3 @@ require get_template_directory() . '/inc/utilities.php';
  */
 require get_template_directory() . '/inc/breadcrumb.php';
 
-
-
