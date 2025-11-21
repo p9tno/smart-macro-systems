@@ -1,10 +1,9 @@
 .loader {
     &__wrap {
-
         position: fixed;
         width: 100%;
         height: 100%;
-        background-color: $color_primary;
+        background-color: $main_color;
         z-index: 20;
 
         display: flex;
@@ -22,52 +21,23 @@
         }
     }
 
-    position: relative;
-    margin: auto;
-    box-sizing: border-box;
-    width: 7.5em;
-    height: 7.5em;
+    width: 3em;
+    height: 3em;
+    border: 0.3125em solid $color_info_dark;
+    border-bottom-color: transparent;
     border-radius: 50%;
-    border: 0.25em solid rgba(255, 255, 255, 0.25);
-    transform-origin: 50% 50%;
-    transform: perspective(200px) rotateX(66deg);
-    animation: spinner-wiggle 1.2s infinite;
-
-    &:after,
-    &:before {
-        content: '';
-        position: absolute;
-        inset: -0.25em;
-        border-radius: 50%;
-        box-sizing: border-box;
-        border: 0.25em solid #0000;
-        animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
-
-    }
-
-    &:before {
-        border-top-color: $color_info;
-    }
-
-    &:after {
-        border-top-color: $color_dark;
-        animation-delay: 0.4s;
-    }
-
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
 }
 
-@keyframes spinner-spin {
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
     100% {
         transform: rotate(360deg);
     }
-}
-@keyframes spinner-fade {
-    25%,
-    75% {
-        opacity: 0.1;
-    }
+} 
 
-    50% {
-        opacity: 1;
-    }
-}
+
