@@ -99,3 +99,6 @@ require get_template_directory() . '/inc/utilities.php';
  * Подключаем хлебные крошки
  */
 require get_template_directory() . '/inc/breadcrumb.php';
+
+
+
