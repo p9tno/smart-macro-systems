@@ -14,6 +14,7 @@ function sms_scripts() {
 
 	wp_enqueue_script( 'sms-aos', get_template_directory_uri() . '/assets/js/aos.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'sms-modal', get_template_directory_uri() . '/assets/js/modal.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'sms-menu', get_template_directory_uri() . '/assets/js/menu.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'sms-function', get_template_directory_uri() . '/assets/js/function.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'sms_scripts' );
