@@ -88,7 +88,7 @@ require_once get_template_directory() . '/inc/plugins-required.php';
 /**
  * Подключаем настройки Smart Custom Fields
  */
-require get_template_directory() . '/inc/scf/scf-init.php';
+require get_template_directory() . '/scf/index.php';
 
 /**
  * Подключаем утилиты темы

@@ -13,7 +13,10 @@ if (!class_exists('Smart_Custom_Fields')) {
  */
 $scf_fields = [
     '/inc/scf/fields/html-example.php',
-    '/inc/scf/fields/link.php'
+    '/inc/scf/fields/link.php',
+    '/inc/scf/fields/number.php',
+    '/inc/scf/fields/range.php',
+    '/inc/scf/fields/media.php'
 ];
 
 foreach ($scf_fields as $field) {
@@ -28,7 +31,7 @@ foreach ($scf_fields as $field) {
  */
 $scf_settings = [
     '/inc/scf/home.php',
-    '/inc/scf/settings.php'
+    '/inc/scf/settings.php',
 ];
 
 foreach ($scf_settings as $setting) {

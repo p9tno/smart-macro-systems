@@ -85,14 +85,32 @@ function global_theme_settings($settings, $type, $id, $meta_type, $types) {
                     'instruction' => 'Пример HTML кода формы для справки:',
                     'notes'       => 'Этот код не сохраняется и служит только примером',
                 ),
-				// array(
-				// 	'type'        => 'link',
-				// 	'name'        => 'button_primary',
-				// 	'label'       => 'Primary Button',
-				// 	'return_format' => 'array',
-				// 	'instruction' => 'Configure the primary button link',
-				// 	'notes'       => 'All fields are optional',
-				// ),
+				array(
+					'type'        => 'link',
+					'name'        => 'button_primary',
+					'label'       => 'Primary Button',
+					'return_format' => 'array',
+					'instruction' => 'Configure the primary button link',
+					'notes'       => 'All fields are optional',
+				),
+				array(
+					'type'        => 'range',
+					'name'        => 'range',
+					'label'       => 'range',
+				
+				),
+				array(
+					'type'        => 'media',
+					'name'        => 'media',
+					'label'       => 'media',
+				
+				),
+				array(
+					'type'        => 'number',
+					'name'        => 'number',
+					'label'       => 'number',
+			
+				),
             )
         );
 
