@@ -19,9 +19,17 @@
 </header>
 
 <?php 
-    get_pr(SCF::get_option_meta('my-theme-settings', 'button_primary'));
-    get_pr(SCF::get_option_meta('my-theme-settings', 'range'));
-    get_pr(SCF::get_option_meta('my-theme-settings', 'media'));
-    get_pr(SCF::get_option_meta('my-theme-settings', 'number'));
+    get_pr(get_theme_mod('site_phone'));
+    if (get_theme_mod('site_phone')) {
+        echo get_theme_mod('site_phone');
+    }
+    // get_pr(SCF::get_option_meta('my-theme-settings', 'button_primary'));
+    // get_pr(SCF::get_option_meta('my-theme-settings', 'range'));
+    // get_pr(SCF::get_option_meta('my-theme-settings', 'media'));
+    // get_pr(SCF::get_option_meta('my-theme-settings', 'number'));
+
+    // get_pr(get_theme_mods());
+
+
 ?>
 

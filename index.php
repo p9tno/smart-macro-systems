@@ -31,4 +31,7 @@ if (theme_check_required_plugins($required_plugins)) {
     ));
 }
 
+// get_template_part('template-parts/sections/section', 'benefits');
+// get_template_part('template-parts/sections/section', 'benefits');
+
 get_footer();

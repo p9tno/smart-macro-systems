@@ -65,18 +65,27 @@ function sms_setup() {
 	);
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'sms_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
+	// add_theme_support(
+	// 	'custom-background',
+	// 	apply_filters(
+	// 		'sms_custom_background_args',
+	// 		array(
+	// 			'default-color' => 'ffffff',
+	// 			'default-image' => '',
+	// 		)
+	// 	)
+	// );
+
+	// Добавляем поддержку customizer
+	add_theme_support('settings_site_options');
 }
 add_action( 'after_setup_theme', 'sms_setup' );
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/customizer/customizer.php';
+
 
 function sms_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'sms_content_width', 640 );
@@ -115,7 +124,8 @@ require_once get_template_directory() . '/inc/plugins-required.php';
 /**
  * Подключаем настройки Smart Custom Fields
  */
-require get_template_directory() . '/scf/index.php';
+require get_template_directory() . '/inc/scf/scf-init.php';
+// require get_template_directory() . '/scf/index.php';
 
 /**
  * Подключаем утилиты темы
