@@ -1,7 +1,11 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5;
 	padding: 0.3125em 0;
 
 	@media (min-width: 768px) {
@@ -11,15 +15,9 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		gap: 1em;
-		// align-items: center;
-		// justify-content: center;
-		// padding: 0.5em 1em;
-		
+		gap: 0.5em;
 		background-color: $color_primary;
 		@media (min-width: 768px) {
-			// justify-content: flex-start;
-			// gap: 2.875em;
 			padding: 1em 5.375em;
 			border-radius: 1.25em;
 			max-width: $wrap_width;
@@ -106,6 +104,11 @@
 	&__info {
 		display: flex;
 		flex-direction: column;
+		font-size: 0.75em;
+		@media (min-width: 768px) {
+			font-size: 1em;
+		  
+		}
 	}
 
 	&__jobTime {
@@ -189,6 +192,10 @@
 
 		}
 
+		@media (min-width: 768px) {
+			display: none;
+		}
+
 	}
 
 	.soc {
@@ -230,6 +237,9 @@
 
 @media (max-width: 767px) {
 	.navbar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
 		position: fixed;
 		top: 0;
 		left: 50%;
@@ -251,6 +261,15 @@
 		&.active {
 			transform: translate(-50%, 0);
 		}
+
+	}
+}
+
+.navbar {
+	.btn {
+		@media (min-width: 768px) {
+			display: none;
+		}
 	}
 }
 
@@ -267,7 +286,7 @@
 		@media (min-width: 768px) {
 			display: flex;
 			align-items: center;
-			gap: 1.25em;
+			gap: 4em;
 			flex-wrap: wrap;
 			position: relative;
 		}
@@ -374,11 +393,11 @@
 	
 				a {
 					font-size: 0.875em;
-					padding: 0.5em 1em;
+					padding: 0.5em 2em 0.5em 1em;
 					text-transform: none;
 					line-height: 1.4;
 					transition: all 0.3s ease;
-					white-space: nowrap;
+					// white-space: nowrap;
 	
 					&:hover {
 						@media (min-width: 768px) {
@@ -510,6 +529,36 @@
 		}
 	}
 
+}
+
+.stiky {
+	position: fixed;
+	z-index: 5;
+
+	animation-name: showMenu;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+
+	@media (min-width: 768px) {
+		.header__content {
+			padding: 0.5em 5.375em;
+		}
+	}
+
+
+}
+
+
+@keyframes showMenu {
+	0% {
+		opacity: 0.5;
+		transform: translateY(-4em);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0em);
+	}
 }
 
 

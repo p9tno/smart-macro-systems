@@ -50,6 +50,25 @@ window.onload = function () {
 
 $(document).ready(function() {
     // console.log('ready');
+
+    function stikyMenu() {
+        const $headerSticked = $('.header_sticked');
+        
+        if (!$headerSticked.length) return;
+        
+        const headerTop = $headerSticked.offset().top + $headerSticked.innerHeight();        
+        let currentTop = $(window).scrollTop();
+        
+        function setNavbarPosition() {
+            currentTop = $(window).scrollTop();
+            $headerSticked.toggleClass('stiky', currentTop > headerTop);
+        }
+        
+        setNavbarPosition();
+        $(window).scroll(setNavbarPosition);
+    }
+
+    stikyMenu();
     
     function scrollPage () {
         $(".toTop").on("click","a", function (event) {
@@ -158,8 +177,4 @@ $(document).ready(function() {
     }
     // initContactFormModal();
 
-    function setupMenu() {
-
-    }
-    setupMenu();
 })

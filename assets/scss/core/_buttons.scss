@@ -7,20 +7,25 @@
 	max-width: 100%;
 
 	font-family: $title_font_family;
-	font-size: 0.875em;
+	font-size: 0.75em;
 	font-weight: 600;
 	text-decoration: none;
 	text-align: center;
 	text-transform: uppercase;
-
+	
 	line-height: 1;
 	letter-spacing: 0.1em;
-
+	
 	color: $color_white;
 	background-color: $color_info_dark;
-
+	
 	cursor: pointer;
 	transition: 0.8s;
+	
+	@media (min-width: 768px) {
+		font-size: 0.875em;
+	  
+	}
 
 	&:hover:not(:disabled) {
 		background-color: $color_info;
