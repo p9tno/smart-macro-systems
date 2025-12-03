@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <a href="#" class="modal-close" data-dismiss="modal"></a>
-            <div class="wpcf7-info__message"></div>
+            <div class="wpcf7-info__message">test</div>
         </div>
     </div>
 </div>

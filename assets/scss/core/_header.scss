@@ -1,21 +1,25 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
+
 	padding: 0.3125em 0;
+
 	@media (min-width: 768px) {
 		padding: 0.625em 0;
 	}
 
 	&__content {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-direction: column;
+		gap: 1em;
+		// align-items: center;
+		// justify-content: center;
 		// padding: 0.5em 1em;
 		
 		background-color: $color_primary;
 		@media (min-width: 768px) {
-			justify-content: flex-start;
-			gap: 2.875em;
+			// justify-content: flex-start;
+			// gap: 2.875em;
 			padding: 1em 5.375em;
 			border-radius: 1.25em;
 			max-width: $wrap_width;
@@ -24,10 +28,20 @@
 		}
 	}
 
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
 	&__logo {
 		flex: none;
+		display: flex;
+		align-items: center;
+		gap: 1em;
 		
 		.custom-logo-link {
+			flex: none;
 			display: block;
 			width: 5em;
 			padding: 0.25em;
@@ -54,8 +68,61 @@
 			text-decoration: none;
 			color: $main_color;
 		}
-	
 
+		&_desc {
+			display: none;
+			@media (min-width: 768px) {
+				color: $main_color;
+				display: block;
+				max-width: 15em;
+				text-align: center;
+			}
+		}
+
+	}
+
+	&__address {
+		color: $main_color;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		i {
+			font-size: 1.5em;
+		}
+		p {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+
+			span {
+				&:first-child {
+					font-size: 0.625em;
+					margin-bottom: 0.25em;
+				}
+			}
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__jobTime {
+		font-size: 0.625em;
+		color: $main_color;
+		margin-bottom: 0.25em;
+	}
+
+	&__phone {
+		text-decoration: none;
+		color: $main_color;
+	}
+
+	&__email {
+		text-decoration: none;
+		color: $main_color;
+		
 	}
 
 	&__toggle {
@@ -122,6 +189,41 @@
 
 		}
 
+	}
+
+	.soc {
+		display: flex;
+		align-items: center;
+		gap: 0.375em;
+
+		a {
+			flex: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.25em;
+			height: 2.25em;
+			border-radius: 100%;
+			text-decoration: none;
+			background: $color_info_dark;
+			color: $main_color;
+
+			&:before {
+				font-size: 1em;
+			}
+		}
+
+		&__layuot {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.25em;
+		}
+
+		&__label {
+			color: $main_color;
+			font-size: 0.625em;
+		}
 	}
 
 }

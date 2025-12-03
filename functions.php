@@ -6,6 +6,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 function sms_scripts() {
 	wp_enqueue_style( 'sms-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style('sms-aos', get_template_directory_uri() . '/assets/css/aos.css', array(), _S_VERSION, 'all');
+	// Иконки соц сетей и платежных систем
+	wp_enqueue_style('sws-icons-style', get_template_directory_uri() . '/assets/fonts/sws/style.css', array(), _S_VERSION);
 	wp_enqueue_style('sms-main-style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION, 'all');
 
 	wp_deregister_script( 'jquery' );

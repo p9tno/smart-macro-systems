@@ -49,7 +49,7 @@ window.onload = function () {
 }
 
 $(document).ready(function() {
-    console.log('ready');
+    // console.log('ready');
     
     function scrollPage () {
         $(".toTop").on("click","a", function (event) {
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
         // $('.modal').on('hide.bs.modal', () => {});
     }
-    // showModal();
+    showModal();
 
 
     function initContactFormModal() {
@@ -156,7 +156,7 @@ $(document).ready(function() {
         // $(document).on('wpcf7invalid', handleFormEvent);
         $(document).on('wpcf7mailfailed', handleFormEvent);
     }
-    initContactFormModal();
+    // initContactFormModal();
 
     function setupMenu() {
 

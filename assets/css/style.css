@@ -1575,14 +1575,12 @@ body {
 }
 .header__content {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
   background-color: #2A2A2A;
 }
 @media (min-width: 768px) {
   .header__content {
-    justify-content: flex-start;
-    gap: 2.875em;
     padding: 1em 5.375em;
     border-radius: 1.25em;
     max-width: 118.75em;
@@ -1590,10 +1588,19 @@ body {
     margin-right: auto;
   }
 }
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header__logo {
   flex: none;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 .header__logo .custom-logo-link {
+  flex: none;
   display: block;
   width: 5em;
   padding: 0.25em;
@@ -1618,6 +1625,52 @@ body {
   object-fit: cover;
 }
 .header__logo_link {
+  text-decoration: none;
+  color: #F5F1E8;
+}
+.header__logo_desc {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header__logo_desc {
+    color: #F5F1E8;
+    display: block;
+    max-width: 15em;
+    text-align: center;
+  }
+}
+.header__address {
+  color: #F5F1E8;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.header__address i {
+  font-size: 1.5em;
+}
+.header__address p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.header__address p span:first-child {
+  font-size: 0.625em;
+  margin-bottom: 0.25em;
+}
+.header__info {
+  display: flex;
+  flex-direction: column;
+}
+.header__jobTime {
+  font-size: 0.625em;
+  color: #F5F1E8;
+  margin-bottom: 0.25em;
+}
+.header__phone {
+  text-decoration: none;
+  color: #F5F1E8;
+}
+.header__email {
   text-decoration: none;
   color: #F5F1E8;
 }
@@ -1666,6 +1719,36 @@ body {
   .header__toggle.active span:after {
     transform: rotate(-45deg);
   }
+}
+.header .soc {
+  display: flex;
+  align-items: center;
+  gap: 0.375em;
+}
+.header .soc a {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25em;
+  height: 2.25em;
+  border-radius: 100%;
+  text-decoration: none;
+  background: #7892D5;
+  color: #F5F1E8;
+}
+.header .soc a:before {
+  font-size: 1em;
+}
+.header .soc__layuot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+.header .soc__label {
+  color: #F5F1E8;
+  font-size: 0.625em;
 }
 
 @media (max-width: 767px) {
@@ -2894,7 +2977,7 @@ body {
   line-height: 1;
   letter-spacing: 0.1em;
   color: #FDFBF7;
-  background-color: #2A2A2A;
+  background-color: #7892D5;
   cursor: pointer;
   transition: 0.8s;
 }

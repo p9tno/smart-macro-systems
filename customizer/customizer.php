@@ -194,14 +194,14 @@ function frondendie_customize_register($wp_customize)
 									'type' => 'checkbox',
 								),
 							),
-							'top' => array(
-								'default' => true,
-								'transport' => $transport,
-								'control' => array(
-									'label' => 'Показывать панель с контактами',
-									'type' => 'checkbox',
-								),
-							),
+							// 'top' => array(
+							// 	'default' => true,
+							// 	'transport' => $transport,
+							// 	'control' => array(
+							// 		'label' => 'Показывать панель с контактами',
+							// 		'type' => 'checkbox',
+							// 	),
+							// ),
 							'show_address' => array(
 								'default' => false,
 								'transport' => $transport,
@@ -234,14 +234,14 @@ function frondendie_customize_register($wp_customize)
 									'type' => 'checkbox',
 								),
 							),
-							// 'show_social' => array(
-							// 	'default' => false,
-							// 	'transport' => $transport,
-							// 	'control' => array(
-							// 		'label' => 'Показать социальные сети',
-							// 		'type' => 'checkbox',
-							// 	),
-							// ),
+							'show_social' => array(
+								'default' => false,
+								'transport' => $transport,
+								'control' => array(
+									'label' => 'Показать социальные сети',
+									'type' => 'checkbox',
+								),
+							),
 							// 'show_account_link' => array(
 							// 	'default' => true,
 							// 	'transport' => $transport,
@@ -250,12 +250,20 @@ function frondendie_customize_register($wp_customize)
 							// 		'type' => 'checkbox',
 							// 	),
 							// ),
+							// 'show_callback_bth' => array(
+							// 	'default' => true,
+							// 	'transport' => $transport,
+							// 	'control' => array(
+							// 		'label' => 'Показать кнопку обратного звонка',
+							// 		'type' => 'checkbox',
+							// 	),
+							// ),
 							'show_callback_bth' => array(
-								'default' => true,
+								'default' => 'Оставить заявку',
 								'transport' => $transport,
 								'control' => array(
-									'label' => 'Показать кнопку обратного звонка',
-									'type' => 'checkbox',
+									'label' => 'Кнопку обратного звонка',
+									'type' => 'text',
 								),
 							),
 						)
