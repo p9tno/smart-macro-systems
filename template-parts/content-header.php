@@ -125,7 +125,16 @@
                             'container' =>'ul',
                         ));
                     ?>
-                    <?php get_template_part( 'template-parts/parts/part', 'header-btn' ); ?>
+
+                    <?php 
+                    if ($showCallbackBtn) { ?>
+                        <a 
+                            href="#wpcf7-info"
+                            class="btn show_modal_js"
+                        >
+                            <?php echo esc_html($showCallbackBtn); ?>
+                        </a>
+                    <?php } ?>
 
     
                 </nav>

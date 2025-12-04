@@ -694,6 +694,11 @@ body {
   overflow: hidden;
   border-radius: 0.625em;
 }
+@media (max-width: 767px) {
+  .section__wrap {
+    margin: 0 0.3125em;
+  }
+}
 @media (min-width: 768px) {
   .section__wrap {
     border-radius: 1.25em;
@@ -2011,11 +2016,6 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0em);
-  }
-}
-@media (max-width: 767px) {
-  .firstscreen .section__wrap {
-    margin: 0 0.3125em;
   }
 }
 @media (min-width: 768px) {
@@ -3543,4 +3543,59 @@ input[type=number] {
 .paymentMethods span {
   font-size: 1.5em;
   color: #FDFBF7;
+}
+
+.privacyBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25em;
+  font-size: 0.6875em;
+  background: #2A2A2A;
+  color: #F5F1E8;
+  border: 0.0625em solid #7A9EB1;
+  box-sizing: border-box;
+  box-shadow: 0 0.875em 1.5em rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  position: fixed;
+  width: 100%;
+  max-width: 26em;
+  padding: 1em;
+  bottom: 0;
+  margin: 0.8125em 1.25em;
+  left: calc(50% - 1.25em);
+  transform: translateX(-50%);
+  opacity: 0;
+  text-align: center;
+}
+.privacyBox:not(.hidden) {
+  animation: privacyBox 1s 3s forwards;
+}
+.privacyBox.hidden {
+  display: none;
+}
+.privacyBox p {
+  margin: 0;
+}
+.privacyBox a {
+  color: var(--links-color);
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .privacyBox {
+    font-size: 1em;
+    padding: 0.625em 1.25em;
+    max-width: 43.75em;
+  }
+}
+
+@keyframes privacyBox {
+  0% {
+    opacity: 0;
+    bottom: -3.125em;
+  }
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
 }

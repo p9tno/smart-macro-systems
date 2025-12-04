@@ -177,4 +177,21 @@ $(document).ready(function() {
     }
     // initContactFormModal();
 
+    function showPrivacyPopup () {
+        const  confirm = localStorage.getItem('confirm');
+        const box = document.querySelector('.privacyBox');
+        if (confirm) { 
+            box.classList.add('hidden');
+        } else {
+            box.classList.remove('hidden');
+        }
+
+        const close = document.querySelector('.privacyBox__close');
+        close.addEventListener('click', function() {
+            localStorage.setItem('confirm', 'true');
+            box.classList.add('hidden');
+        });
+    }
+    showPrivacyPopup();
+
 })

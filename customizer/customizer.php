@@ -297,14 +297,14 @@ function frondendie_customize_register($wp_customize)
 									'type' => 'checkbox',
 								),
 							),
-							'show_footer_menu' => array(
-								'default' => true,
-								'transport' => $transport,
-								'control' => array(
-									'label' => 'Показать меню',
-									'type' => 'checkbox',
-								),
-							),
+							// 'show_footer_menu' => array(
+							// 	'default' => true,
+							// 	'transport' => $transport,
+							// 	'control' => array(
+							// 		'label' => 'Показать меню',
+							// 		'type' => 'checkbox',
+							// 	),
+							// ),
 							'show_footer_copyright' => array(
 								'default' => true,
 								'transport' => $transport,

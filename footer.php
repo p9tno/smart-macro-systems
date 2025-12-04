@@ -17,6 +17,8 @@
 			
 		<?php wp_footer(); ?>
 
+		<?php get_template_part( 'template-parts/parts/part', 'privacy-box' ); ?>
+
 		<?php
 			$show_google = get_theme_mod('show_google');
 			$google_metrica = get_theme_mod('google_metrica');

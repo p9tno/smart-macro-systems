@@ -130,6 +130,11 @@ body {
 	&__wrap {
 		overflow: hidden;
 		border-radius: 0.625em;
+
+
+		@media (max-width: 767px) {
+            margin: 0 0.3125em;
+        }
 		@media (min-width: 768px) {
 			border-radius: 1.25em;
 			max-width: $wrap_width;
