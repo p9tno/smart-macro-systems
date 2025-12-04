@@ -139,3 +139,9 @@ require get_template_directory() . '/inc/utilities.php';
  */
 require get_template_directory() . '/inc/breadcrumb.php';
 
+/**
+ * 
+ * Подключаем способы оплаты
+ */
+require get_template_directory() . '/inc/payment-methods.php';
+

@@ -12,3 +12,25 @@ License URI: LICENSE
 Text Domain: sms
 Tags: corporate, business, custom-design
 */
+
+
+.dev {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  text-decoration: none;
+}
+
+.dev__logo {
+  width: 3.5em;
+  color: inherit;
+}
+
+.dev__logo img {
+  display: block;
+  object-fit: contain;
+}
+
+.dev__text {
+  font-size: 0.9em;
+}

@@ -1,0 +1,40 @@
+	.soc {
+		display: flex;
+		align-items: center;
+		gap: 0.375em;
+
+		a {
+			flex: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.25em;
+			height: 2.25em;
+			border-radius: 100%;
+			text-decoration: none;
+			color: $main_color;
+			background: $color_info_dark;
+			
+			&:before {
+				font-size: 1em;
+			}
+			
+			@media (min-width: 768px) {
+				&:hover {
+					background: $color_info;
+				}
+			}
+		}
+
+		&__layuot {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.25em;
+		}
+
+		&__label {
+			color: $main_color;
+			font-size: 0.625em;
+		}
+	}

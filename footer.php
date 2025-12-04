@@ -17,5 +17,14 @@
 			
 		<?php wp_footer(); ?>
 
+		<?php
+			$show_google = get_theme_mod('show_google');
+			$google_metrica = get_theme_mod('google_metrica');
+			$show_yandex = get_theme_mod('show_yandex');
+			$yandex_metrica = get_theme_mod('yandex_metrica');
+			if ($show_google) { echo $google_metrica; }
+			if ($show_yandex) { echo $yandex_metrica; }
+		?>
+
 	</body>
 </html>

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'sws';
   src:
-    url('fonts/sws.ttf?p036gb') format('truetype'),
-    url('fonts/sws.woff?p036gb') format('woff'),
-    url('fonts/sws.svg?p036gb#sws') format('svg');
+    url('fonts/sws.ttf?6aohdc') format('truetype'),
+    url('fonts/sws.woff?6aohdc') format('woff'),
+    url('fonts/sws.svg?6aohdc#sws') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,7 +39,7 @@
 .sws_icon_sbp:before {
   content: "\e904";
 }
-.sws_icon_mir_path1:before {
+.sws_icon_mir:before {
   content: "\e905";
 }
 .sws_icon_yoomoney:before {

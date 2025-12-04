@@ -313,22 +313,22 @@ function frondendie_customize_register($wp_customize)
 									'type' => 'checkbox',
 								),
 							),
-							'footer_contact_title' => array(
-								'default' => 'Контакты',
-								'transport' => $transport,
-								'control' => array(
-									'label' => 'Заголовок колонки с контактами',
-									'type' => 'text',
-								),
-							),
-							'footer_address_title' => array(
-								'default' => 'Ждём в гости',
-								'transport' => $transport,
-								'control' => array(
-									'label' => 'Заголовок с адресом и соцсетями',
-									'type' => 'text',
-								),
-							),
+							// 'footer_contact_title' => array(
+							// 	'default' => 'Контакты',
+							// 	'transport' => $transport,
+							// 	'control' => array(
+							// 		'label' => 'Заголовок колонки с контактами',
+							// 		'type' => 'text',
+							// 	),
+							// ),
+							// 'footer_address_title' => array(
+							// 	'default' => 'Ждём в гости',
+							// 	'transport' => $transport,
+							// 	'control' => array(
+							// 		'label' => 'Заголовок с адресом и соцсетями',
+							// 		'type' => 'text',
+							// 	),
+							// ),
 							'footer_copyright_text' => array(
 								'default' => '',
 								'transport' => $transport,
