@@ -33,6 +33,8 @@ function sms_setup() {
 	register_nav_menus(
 		array(
 			'header' => esc_html__( 'header', 'sms' ),
+			'footer-1' => esc_html__( 'footer-1', 'sms' ),
+			'footer-2' => esc_html__( 'footer-2', 'sms' ),
 		)
 	);
 

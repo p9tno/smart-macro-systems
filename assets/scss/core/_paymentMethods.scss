@@ -4,6 +4,17 @@
         align-items: center;
         justify-content: center;
         gap: 1em;
+        flex-wrap: wrap;
+
+        
+        @media (max-width: 767px) {
+            max-width: 13em;
+          
+        }
+
+        @media (min-width: 768px) {
+          
+        }
 
 
     }

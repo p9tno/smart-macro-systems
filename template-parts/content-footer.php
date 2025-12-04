@@ -67,11 +67,28 @@
     
                     <?php } ?>
         
-                    <?php
-                    // dynamic_sidebar('footer-menu-1');
-                    // dynamic_sidebar('footer-menu-2');
-                    // dynamic_sidebar('footer-menu-3');
-                    ?>
+                    <?php 
+                    if (has_nav_menu('footer-1')) : ?>
+                        <nav class="footer__col desktop">
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'footer-1',
+                                'container' => 'ul',
+                                'menu_class' => 'footer__menu',
+                                'depth' => 1,
+                            )); ?>
+                        </nav>
+                    <?php endif; ?>
+                    <?php 
+                    if (has_nav_menu('footer-2')) : ?>
+                        <nav class="footer__col desktop">
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'footer-2',
+                                'container' => 'ul',
+                                'menu_class' => 'footer__menu',
+                                'depth' => 1,
+                            )); ?>
+                        </nav>
+                    <?php endif; ?>
 
                     <?php if ($jobTime || $phone || $email || $showSocials) { ?>
                         <div class="footer__col">

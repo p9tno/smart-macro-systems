@@ -90,8 +90,34 @@
             <div class="header__nav">
                 <nav class="navbar">
                     <div class="header__row mobile">
-                        <?php get_template_part( 'template-parts/parts/part', 'logo' ); ?>
-                        <?php get_template_part( 'template-parts/parts/part', 'header-info' ); ?>
+                        <div class="header__logo">
+                            <?php if (has_custom_logo()) { the_custom_logo(); ?>
+                            <?php } else { ?>
+                                <a class="header__logo_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                            <?php } ?>
+
+                            <?php 
+                            $description = get_bloginfo('description', 'display');
+
+                            if ($description || is_customize_preview()) { ?>
+                                <span class="header__logo_desc"><?php echo esc_html($description); ?></span>
+                            <?php } ?>
+                        </div>
+
+                        <?php if ($showJobTime || $showPhone || $showEmail) { ?>
+                            <div class="header__info">
+                                <?php if ($showJobTime && $jobTime) { ?>
+                                    <span class="header__jobTime"><?php echo $jobTime; ?></span>
+                                <?php } ?>
+                                <?php if ($showPhone && $phone) { ?>
+                                    <a class="header__phone" href="tel:<?php echo preg_replace('/\s+/', '', $phone); ?>"><?php echo esc_html($phone); ?></a>
+                                <?php } ?>
+                                <?php if ($showEmail && $email) { ?>
+                                    <a class="header__email" href="mailto<?php echo $email; ?>"><?php echo esc_html($email); ?></a>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+                        
                     </div>
                     <?php 
                         wp_nav_menu(array(

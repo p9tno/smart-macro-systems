@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'sws';
   src:
-    url('fonts/sws.ttf?6aohdc') format('truetype'),
-    url('fonts/sws.woff?6aohdc') format('woff'),
-    url('fonts/sws.svg?6aohdc#sws') format('svg');
+    url('fonts/sws.ttf?t4kpkq') format('truetype'),
+    url('fonts/sws.woff?t4kpkq') format('woff'),
+    url('fonts/sws.svg?t4kpkq#sws') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -93,18 +93,18 @@
 .sws_icon_pin:before {
   content: "\e918";
 }
-.sws_icon_facebook:before {
+.sws_icon_fb:before {
   content: "\e90e";
 }
-.sws_icon_instagram:before {
+.sws_icon_inst:before {
   content: "\e90f";
 }
-.sws_icon_youtube:before {
+.sws_icon_yt:before {
   content: "\e910";
 }
-.sws_icon_twitter:before {
+.sws_icon_tw:before {
   content: "\e911";
 }
-.sws_icon_whatsapp:before {
+.sws_icon_wa:before {
   content: "\e912";
 }
